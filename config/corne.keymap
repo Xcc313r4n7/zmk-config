@@ -9,72 +9,163 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT    0
-#define MEDIA      1
+#define FUNCTIONS  1
 #define NUMBERS    2
 #define MOUSE      3
 #define NAVIGATION 4
 #define SYMBOLS    5
-#define FUNCTION   6
-#define LSHIFT     7
-#define RSHIFT     8
-#define SMEDIA     9
-#define QWTY       10
+#define SETTINGS   6
+#define QWTY       7
+#define GAMING     8
 
 / {
+
+/*modmorphs*/
+behaviors {
+        uspc: space_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SPACE_UNDERSCORE";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp UNDER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+   };
+
+behaviors {
+        cscol: comma_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMICOLON";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+   };
+
+behaviors {
+        pcol: period_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PERIOD_COLON";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+   };
+
+behaviors {
+        exques: exclamation_questionmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXCLAMATION_QUESTIONMARK";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+   };
+
+/*layertap modmorphs*/
+behaviors {
+        ltmmg: layertap_modmorph_gresc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERTAP_MODMORPH_GRESC";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&gresc>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+       };
+   };
+
+behaviors {
+        ltmms: layertap_modmorph_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERTAP_MODMORPH_SPACE";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&uspc>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+       };
+   };
+
+/*homerow mods*/
+behaviors {
+        lhm: left_positional_home_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOME_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;    // <---[[right-hand keys]]
+        };
+    };
+
+    behaviors {
+        rhm: right_positional_home_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_POSITIONAL_HOME_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;    // <---[[left-hand keys]]
+        };
+    };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         bindings = <                
-//  ______________________________________________________________________         ________________________________________________________________________
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-    &kp none     &kp Q         &kp W       &kp F       &kp P       &kp B               &kp J       &kp L       &kp U       &kp Y      &kp SQT    &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-    &kp none    &mt LGUI A  &mt LALT R  &mt LCTRL S   &lt 7 T      &kp G               &kp M      &lt 8 N   &mt RCTRL E  &mt RALT I  &mt RGUI O  &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-    &kp none       &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K       &kp H     &kp COMMA    &kp DOT     &kp EXCL   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-//                                     |           |           |           ||     ||           |           |           |
-                                         &lt 1 ESC   &lt 2 SPC   &lt 3 TAB           &lt 4 RTN  &lt 5 BSPC   &lt 6 DEL
-//                                     |___________|___________|___________||     ||___________|___________|___________|                  
+//  ___________________________________________________________________________________         ___________________________________________________________________________________
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+     &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp B                 &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_NEXT
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+      &kp C_MUTE   &lhm LGUI A   &lhm LALT R   &lhm LCTRL S  &lhm LSHFT T     &kp G                 &kp M      &rhm RSHFT N  &rhm RCTRL E  &rhm RALT I   &rhm RGUI O    &kp C_PP
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+     &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp D         &kp V                 &kp K         &kp H        &cscol         &pcol        &exques     &kp C_PREV
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||     ||             |             |             |
+                                                &ltmmg 1 0    &ltmms 2 0    &lt 3 TAB             &lt 4 RTN    &lt 5 BSPC     &lt 6 DEL
+//                                           |_____________|_____________|_____________||     ||_____________|_____________|_____________|                  
                         >;
                 };
-                media_layer {
+                functions_layer {
                      bindings = <
 
-//  _______________________________________________________________________        _______________________________________________________________________
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp BTLDR    &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp none     &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp none     &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-//                                     |           |           |           ||     ||           |           |           |
-                                          &kp none    &kp none    &kp none            &kp none    &kp none    &kp none
-//                                     |___________|___________|___________||     ||___________|___________|___________|                  
+//  ___________________________________________________________________________________         ___________________________________________________________________________________
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans         &none         &none         &none         &none         &none                 &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans        &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT      &none                 &none        &kp F4        &kp F5        &kp F6        &kp F11       &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans         &none         &none         &none         &none         &none                 &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||     ||             |             |             |
+                                                &trans          &none         &none                 &none         &none         &none
+//                                           |_____________|_____________|_____________||     ||_____________|_____________|_____________|
                         >;
                 };
                 number_layer {
                      bindings = <
 
-//  _______________________________________________________________________        _______________________________________________________________________
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp BTLDR    &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp none     &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-// |           |           |           |           |           |           ||     ||           |           |           |           |           |           |
-     &kp none     &kp none    &kp none    &kp none    &kp none    &kp none            &kp none    &kp none    &kp none    &kp none    &kp none   &kp none
-// |___________|___________|___________|___________|___________|___________||     ||___________|___________|___________|___________|___________|___________|
-//                                     |           |           |           ||     ||           |           |           |
-                                          &kp none    &kp none    &kp none            &kp none    &kp none    &kp none
-//                                     |___________|___________|___________||     ||___________|___________|___________|
+//  ___________________________________________________________________________________         ___________________________________________________________________________________
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans        &none         &none         &none         &none         &none                &kp SLASH      &kp n7        &kp n8        &kp n9       &kp PLUS     &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans        &none         &none         &none         &none         &none              &kp ASTERISK     &kp n4        &kp n5        &kp n6       &kp MINUS    &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||     ||             |             |             |             |             |             |
+       &trans        &none         &none         &none         &none         &none                &kp COMMA     &kp n1        &kp n2        &kp n3        &kp EQUAL    &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||     ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||     ||             |             |             |
+                                                  &none         &trans        &none               &kp ENTER      &kp n0      &kp PERIOD
+//                                           |_____________|_____________|_____________||     ||_____________|_____________|_____________|
                         >;
                 };
         };
