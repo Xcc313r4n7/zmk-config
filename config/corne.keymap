@@ -365,10 +365,10 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp PIPE      &kp CARET      &kp HASH    &kp DOLLAR    &kp PERCENT            &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
+       &trans       &kp FSLH      &kp LBRC       &kp LBKT     &kp LPAR       &kp LT               &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp FSLH      &kp LBRC      &kp LBKT      &kp LPAR       &kp LT               &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+       &trans       &kp PIPE      &kp CARET      &kp HASH     &kp DOLLAR   &kp PERCENT            &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT               &none        &tog 4         &none         &none         &none        &trans
