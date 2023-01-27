@@ -116,9 +116,21 @@ behaviors {
         };
     };
 
-/*output key modmorphs*/
+/*reset bootloader modmorph*/
+
 behaviors {
-        outtog: output_toggle {
+        rst_btldr: reset_bootloader {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RESET_BOOTLOADER";
+            #binding-cells = <0>;
+            bindings = <&reset>, <&bootloader>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+/*output key modmorph*/
+behaviors {
+        out_tog: output_toggle {
             compatible = "zmk,behavior-mod-morph";
             label = "OUTPUT_TOGGLE";
             #binding-cells = <0>;
@@ -293,7 +305,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans      &bootloader      &tog 8        &tog 7        &tog 0        &none               &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
+       &trans       &rst_btldr     &tog 8        &tog 7        &tog 0        &none               &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT      &none               &none        &kp F4        &kp F5        &kp F6        &kp F11       &trans
@@ -311,7 +323,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans      &bootloader      &tog 8        &tog 7        &tog 0        &none             &kp FSLH       &kp n7        &kp n8        &kp n9       &kp PLUS       &trans
+       &trans       &rst_btldr     &tog 8        &tog 7        &tog 0        &none             &kp FSLH       &kp n7        &kp n8        &kp n9       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none            &kp ASTERISK    &kp n4        &kp n5        &kp n6       &kp MINUS      &trans
@@ -329,7 +341,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans      &bootloader      &tog 8        &tog 7        &tog 0        &none              &kp SLCK       &none         &none         &none         &none        &trans
+       &trans       &rst_btldr     &tog 8        &tog 7        &tog 0         &none              &kp SLCK       &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none             &kp PRSCRN      &none         &none         &none         &none        &trans
@@ -347,7 +359,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS              &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
+       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS              &none         &tog 0        &tog 7        &tog 8      &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &kp LEFT      &kp UP        &kp DOWN     &kp RIGHT     &kp CAPS              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
@@ -365,7 +377,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp FSLH      &kp LBRC       &kp LBKT     &kp LPAR       &kp LT               &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
+       &trans       &kp FSLH      &kp LBRC       &kp LBKT     &kp LPAR       &kp LT               &none         &tog 0        &tog 7        &tog 8      &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans       &kp PIPE      &kp CARET      &kp HASH     &kp DOLLAR   &kp PERCENT            &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
@@ -383,10 +395,10 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &none          &none         &none         &none         &none               &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
+       &trans        &none          &none         &none         &none         &none               &none         &tog 0        &tog 7        &tog 8      &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &bt0          &bt1          &bt2          &bt3         &outtog              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &rgbeff       &rgbsat       &rgbhue       &rgbbri       &rgbtog              &none         &tog 4        &none         &none         &none        &trans
@@ -436,7 +448,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans        &trans        &trans         &trans              &none         &tog 0        &tog 7        &tog 8     &bootloader     &trans
+       &trans        &trans        &trans        &trans        &trans         &trans              &none         &tog 0        &tog 7        &tog 8      &rst_btldr      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &kp n1        &kp n2        &kp n3        &kp n4        &kp n5         &trans             &trans        &trans        &trans        &trans        &trans         &trans   
