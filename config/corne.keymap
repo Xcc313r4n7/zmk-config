@@ -126,7 +126,7 @@
        &trans       &kp PIPE      &kp CARET      &kp HASH     &kp DOLLAR   &kp PERCENT            &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT               &none        &tog 4         &none         &none         &none        &trans
+       &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT               &none        &tog 5         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                 &kp TILDE      &kp AMPS      &kp AT               &none        &trans         &none
@@ -144,7 +144,7 @@
        &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &rgbeff       &rgbsat       &rgbhue       &rgbbri       &rgbtog              &none         &tog 4        &none         &none         &none        &trans
+       &trans        &rgbeff       &rgbsat       &rgbhue       &rgbbri       &rgbtog              &none         &tog 6        &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                  &kp ESC       &kp BSPC      &kp DEL              &trans        &none         &none
@@ -197,7 +197,7 @@
        &kp n1        &kp n2        &kp n3        &kp n4        &kp n5         &trans             &trans        &trans        &trans        &trans        &trans         &trans   
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &kp n6        &kp n7        &kp n8        &kp n9        &kp n0         &trans             &trans        &trans        &trans        &trans        &trans         &trans   
+       &kp n6        &kp n7        &kp n8        &kp n9        &kp n0         &trans             &trans        &tog 9        &trans        &trans        &trans         &trans   
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                  &trans        &trans         &trans             &trans        &trans        &trans    
