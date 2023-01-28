@@ -1,0 +1,255 @@
+/*modmorphs*/
+behaviors {
+        uspc: space_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SPACE_UNDERSCORE";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp UNDER>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        cscol: comma_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMICOLON";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        pcol: period_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PERIOD_COLON";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COLON>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        exques: exclamation_questionmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXCLAMATION_QUESTIONMARK";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp QMARK>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+/*layertap modmorphs*/
+behaviors {
+        ltmmg: layertap_modmorph_gresc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERTAP_MODMORPH_GRESC";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&gresc>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+       };
+   };
+
+behaviors {
+        ltmms: layertap_modmorph_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERTAP_MODMORPH_SPACE";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&uspc>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+       };
+   };
+
+/*homerow mods*/
+behaviors {
+        lhm: left_positional_home_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOME_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;    // <---[[right-hand keys]]
+        };
+    };
+
+    behaviors {
+        rhm: right_positional_home_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_POSITIONAL_HOME_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;    // <---[[left-hand keys]]
+        };
+    };
+
+/*reset bootloader modmorph*/
+
+behaviors {
+        rst_btldr: reset_bootloader {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RESET_BOOTLOADER";
+            #binding-cells = <0>;
+            bindings = <&reset>, <&bootloader>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+/*output key modmorph*/
+behaviors {
+        out_tog: output_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            label = "OUTPUT_TOGGLE";
+            #binding-cells = <0>;
+            bindings = <&out OUT_TOG>, <&kp OUT_BLE>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+/*bluetooth clear macros*/
+macros {
+        clr_bt_0: clr_bt_0 {
+            label = "ZM_clr_bt_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 0>
+                , <&macro_tap &bt BT_CLR>
+                ;
+        };
+    };
+
+macros {
+        clr_bt_1: clr_bt_1 {
+            label = "ZM_clr_bt_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 1>
+                , <&macro_tap &bt BT_CLR>
+                ;
+        };
+    };
+
+macros {
+        clr_bt_2: clr_bt_2 {
+            label = "ZM_clr_bt_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 2>
+                , <&macro_tap &bt BT_CLR>
+                ;
+        };
+    };
+
+macros {
+        clr_bt_3: clr_bt_3 {
+            label = "ZM_clr_bt_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 3>
+                , <&macro_tap &bt BT_CLR>
+                ;
+        };
+    };
+
+/*bluetooth key modmorphs*/
+behaviors {
+        bt0: bluetooth_0_clear {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BLUETOOTH_0_CLEAR";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&clr_bt_0>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        bt1: bluetooth_1_clear {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BLUETOOTH_1_CLEAR";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&clr_bt_1>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        bt2: bluetooth_2_clear {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BLUETOOTH_2_CLEAR";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&clr_bt_2>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        bt3: bluetooth_3_clear {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BLUETOOTH_3_CLEAR";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&clr_bt_3>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+/*rgb key modmorphs*/
+behaviors {
+        rgbeff: rgb_effects {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_EFFECTS";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        rgbsat: rgb_saturation {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_SATURATION";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        rgbhue: rgb_effects {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_HUE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        rgbbri: rgb_brightness {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_BRIGHTNESS";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
+
+behaviors {
+        rgbtog: rgb_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_TOGGLE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_TOG>, <&rgb_ug RGB_OFF>;
+            mods = <(LSHIFT|RSHIFT)>;
+       };
+   };
