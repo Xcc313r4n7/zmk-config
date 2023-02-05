@@ -23,6 +23,10 @@
 #define GAMING     8
 #define GAMING_NUM 9
 
+&led_strip {
+       chain-length = <27>;
+};
+
 / {
 
 /*modmorphs*/
@@ -243,57 +247,6 @@ behaviors {
        };
    };
 
-/*rgb key modmorphs*/
-behaviors {
-        rgbeff: rgb_effects {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RGB_EFFECTS";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
-   };
-
-behaviors {
-        rgbsat: rgb_saturation {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RGB_SATURATION";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
-   };
-
-behaviors {
-        rgbhue: rgb_effects {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RGB_HUE";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
-   };
-
-behaviors {
-        rgbbri: rgb_brightness {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RGB_BRIGHTNESS";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
-   };
-
-behaviors {
-        rgbtog: rgb_toggle {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RGB_TOGGLE";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_TOG>, <&rgb_ug RGB_OFF>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
-   };
-
    keymap {
          compatible = "zmk,keymap";
             default_layer {
@@ -408,13 +361,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &none          &none         &none         &none         &none               &none        &tog 0        &tog 7        &tog 8       &rst_btldr     &trans
+       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none        &tog 0        &tog 7        &tog 8       &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+       &trans        RGB_EFF       RGB_SAI       RGB_HUI       RGB_BRI       RGB_TOG              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &rgbeff       &rgbsat       &rgbhue       &rgbbri       &rgbtog              &none        &tog 6        &none         &none         &none        &trans
+       &trans        RGB_EFR       RGB_SAD       RGB_HUD       RGB_BRD        &none               &none        &tog 6         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &kp ESC       &kp BSPC      &kp DEL             &trans        &none         &none
