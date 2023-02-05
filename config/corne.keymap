@@ -360,10 +360,10 @@ behaviors {
        &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none        &tog 0        &tog 7        &tog 8       &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        RGB_EFF       RGB_SAI       RGB_HUI       RGB_BRI       RGB_TOG              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+     &trans    &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        RGB_EFR       RGB_SAD       RGB_HUD       RGB_BRD        &none               &none        &tog 6         &none         &none         &none        &trans
+       &trans    &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none            &none        &tog 6         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &kp ESC       &kp BSPC      &kp DEL             &trans        &none         &none
