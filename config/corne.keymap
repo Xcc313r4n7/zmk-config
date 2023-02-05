@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "/boards/nice_nano.overlay"
+#include "nice_nano.overlay"
 
 #define DEFAULT    0
 #define FUNCTIONS  1
