@@ -23,6 +23,8 @@
 #define GAMING     8
 #define GAMING_NUM 9
 
+/ {
+
 /*modmorphs*/
 behaviors {
         uspc: space_underscore {
