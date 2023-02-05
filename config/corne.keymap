@@ -343,7 +343,7 @@ behaviors {
        &trans       &rst_btldr     &tog 8        &tog 7        &tog 0         &none              &kp SLCK       &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none             &kp PRSCRN      &none         &none         &none         &none        &trans
+       &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none             &kp PSCRN       &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &none         &none         &none         &tog 3         &none          &kp PAUSE_BREAK    &none         &none         &none         &none        &trans
