@@ -25,6 +25,10 @@
 
 / {
 
+&led_strip {
+    chain-length = <23>;
+};       
+
 /*modmorphs*/
 behaviors {
         uspc: space_underscore {
