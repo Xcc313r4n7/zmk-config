@@ -23,11 +23,11 @@
 #define GAMING     8
 #define GAMING_NUM 9
 
+/ {
+
 &led_strip {
        chain-length = <27>;
 };
-
-/ {
 
 /*modmorphs*/
 behaviors {
