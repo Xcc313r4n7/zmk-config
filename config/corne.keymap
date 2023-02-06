@@ -152,7 +152,7 @@ behaviors {
             compatible = "zmk,behavior-mod-morph";
             label = "OUTPUT_TOGGLE";
             #binding-cells = <0>;
-            bindings = <&out OUT_TOG>, <&kp OUT_BLE>;
+            bindings = <&out OUT_TOG>, <&out OUT_BLE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
        };
    };
