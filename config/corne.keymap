@@ -15,13 +15,12 @@
 #define DEFAULT    0
 #define FUNCTIONS  1
 #define NUMBERS    2
-#define MOUSE      3
-#define NAVIGATION 4
-#define SYMBOLS    5
-#define SETTINGS   6
-#define QWERTY     7
-#define GAMING     8
-#define GAMING_NUM 9
+#define NAVIGATION 3
+#define SYMBOLS    4
+#define SETTINGS   5
+#define QWERTY     6
+#define GAMING     7
+#define GAMING_NUM 8
 
 &led_strip {
     chain-length = <27>;
@@ -112,12 +111,12 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "KEY_REPEAT";
             #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
        };
-   };     
+   };    
 
 /*homerow mods*/
 behaviors {
@@ -270,13 +269,13 @@ behaviors {
       &kp C_NEXT      &kp Q         &kp W         &kp F         &kp P         &kp B               &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_VOL_UP
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-      &kp C_PP     &lhm LGUI A   &lhm LALT R   &lhm LCTRL S  &lhm LSHFT T     &kp G               &kp M      &rhm RSHFT N  &rhm RCTRL E  &rhm RALT I   &rhm RGUI O    &kp C_MUTE
+      &kp C_PP        &kp A      &lhm LGUI R   &lhm LALT S   &lhm LCTRL T     &kp G               &kp M      &rhm RCTRL N  &rhm RALT E   &rhm RGUI I      &kp O      &kp C_MUTE
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
       &kp C_PREV      &kp Z         &kp X         &kp C         &kp D         &kp V               &kp K         &kp H        &cscol         &pcol        &exques     &kp C_VOL_DN
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                &ltmmg 1 0  &ltrpt 2 BSPC  &ltrpt 3 DEL        &ltrpt 4 TAB   &ltmms 5 0  &ltrpt 6 ENTER    
+                                                &ltmmg 1 0 &krpt LSHFT BSPC &ltrpt 2 DEL       &ltrpt 3 TAB   &ltmms 4 0  &ltrpt 5 ENTER    
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
@@ -285,10 +284,10 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &rst_btldr      &tog 8        &tog 7        &tog 0        &none               &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
+       &trans       &rst_btldr      &tog 7        &tog 6        &tog 0        &none               &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT      &none               &none        &kp F4        &kp F5        &kp F6        &kp F11       &trans
+       &trans        &none         &kp LGUI      &kp LALT     &kp LCTRL       &none               &none        &kp F4        &kp F5        &kp F6        &kp F11       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans         &none         &none         &none         &tog 1        &none               &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
@@ -303,35 +302,17 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &rst_btldr      &tog 8        &tog 7       &tog 0         &none             &kp FSLH        &kp N7        &kp N8        &kp N9       &kp PLUS      &trans
+       &trans       &rst_btldr      &tog 7        &tog 6        &tog 0        &none             &kp FSLH        &kp N7       &kp N8        &kp N9       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none            &kp ASTERISK    &kp N4        &kp N5        &kp N6       &kp MINUS      &trans
+       &trans        &none         &kp LGUI      &kp LALT     &kp LCTRL       &none            &kp ASTERISK     &kp N4       &kp N5        &kp N6       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &none         &none         &none         &tog 2         &none             &kp COMMA      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+       &trans        &none         &none         &none         &tog 2         &none             &kp COMMA       &kp N1       &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &none        &trans         &none            &kp PERIOD      &kp N0       &kp ENTER       
+                                                  &none         &none        &trans             &kp PERIOD      &kp N0      &kp ENTER       
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|
-                  >;
-               };
-            mouse_layer {
-                  bindings = <
-
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &rst_btldr      &tog 8        &tog 7        &tog 0        &none              &kp SLCK       &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp LGUI      &kp LALT     &kp LCTRL     &kp LSHFT       &none             &kp PSCRN       &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &none         &none         &none          &tog 3        &none          &kp PAUSE_BREAK    &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||   ||             |             |             |
-                                                  &none         &none        &trans               &none         &none         &none
-//                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
             navigation_layer {
@@ -339,16 +320,16 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS              &none        &tog 0        &tog 7        &tog 8      &rst_btldr     &trans
+       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS              &none        &tog 0        &tog 6         &tog 7      &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &kp LEFT      &kp UP        &kp DOWN     &kp RIGHT     &kp CAPS              &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+       &trans        &kp LEFT      &kp UP        &kp DOWN     &kp RIGHT     &kp CAPS              &none       &kp LCTRL     &kp LALT      &kp LGUI        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)             &none        &tog 4         &none         &none         &none        &trans
+       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)             &none        &tog 3         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                 &kp ESC       &kp BSPC      &kp DEL             &none         &none         &trans
+                                                 &kp ESC        &trans       &kp DEL             &trans         &none         &none    
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
@@ -357,13 +338,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp FSLH      &kp LBRC       &kp LBKT     &kp LPAR       &kp LT               &none        &tog 0        &tog 7        &tog 8       &rst_btldr     &trans
+       &trans       &kp FSLH      &kp LBRC       &kp LBKT     &kp LPAR       &kp LT               &none        &tog 0        &tog 6        &tog 7       &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp PIPE      &kp CARET      &kp HASH     &kp DOLLAR   &kp PERCENT            &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+       &trans       &kp PIPE      &kp CARET      &kp HASH     &kp DOLLAR   &kp PERCENT            &none       &kp LCTRL     &kp LALT      &kp LGUI        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT               &none        &tog 5         &none         &none         &none        &trans
+       &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT               &none        &tog 4         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                 &kp TILDE      &kp AMPS      &kp AT               &none        &trans         &none
@@ -375,16 +356,16 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none        &tog 0        &tog 7        &tog 8       &rst_btldr     &trans
+       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &none        &tog 0        &tog 6        &tog 7       &rst_btldr     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-     &trans    &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI       &trans
+     &trans    &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &none       &kp LCTRL     &kp LALT      &kp LGUI        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-     &trans    &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &tog 6         &none         &none         &none        &trans
+     &trans    &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &tog 5         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &kp ESC       &kp BSPC      &kp DEL             &none         &none         &trans
+                                                 &kp ESC      &kp BSPC       &kp DEL              &none         &none         &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
@@ -395,7 +376,7 @@ behaviors {
       &kp C_NEXT      &kp Q         &kp W         &kp E         &kp R         &kp T               &kp Y         &kp U         &kp I         &kp O         &kp P      &kp C_VOL_UP
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-      &kp C_PP     &lhm LGUI A   &lhm LALT S   &lhm LCTRL D  &lhm LSHFT F     &kp G               &kp H      &rhm RSHFT J  &rhm RCTRL K  &rhm RALT L  &rhm RGUI APOS  &kp C_MUTE
+      &kp C_PP        &kp A      &lhm LGUI S   &lhm LALT D   &lhm LCTRL F     &kp G               &kp H      &rhm RCTRL J  &rhm RALT K   &rhm RGUI L    &kp APOS     &kp C_MUTE
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
       &kp C_PREV      &kp Z         &kp X         &kp C         &kp V         &kp B               &kp N         &kp M        &cscol         &pcol        &exques     &kp C_VOL_DN
@@ -418,7 +399,7 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp V         &kp B               &kp N         &kp M        &cscol         &pcol        &exques     &kp C_VOL_DN
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &mo 9       &kp SPACE      &kp ESC            &kp ENTER     &kp BSPC      &kp DEL
+                                                  &mo 8       &kp SPACE      &kp ESC            &kp ENTER     &kp BSPC      &kp DEL
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
@@ -428,13 +409,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans        &trans        &trans         &trans              &none        &tog 0        &tog 7        &tog 8       &rst_btldr      &trans
+       &trans        &trans        &trans        &trans        &trans         &trans              &none        &tog 0        &tog 6        &tog 7       &rst_btldr      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5         &trans             &trans        &trans        &trans        &trans        &trans         &trans   
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0         &trans             &trans        &tog 9        &trans        &trans        &trans         &trans   
+       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0         &trans             &trans        &tog 8        &trans        &trans        &trans         &trans   
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                  &trans        &trans         &trans             &trans        &trans        &trans    
