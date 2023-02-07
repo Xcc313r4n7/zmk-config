@@ -88,7 +88,7 @@ behaviors {
         out_tog: output_toggle {
             compatible = "zmk,behavior-hold-tap";
             label = "OUTPUT_TOGGLE";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             bindings = <&out OUT_TOG>, <&out OUT_USB>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
