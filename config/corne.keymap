@@ -184,6 +184,17 @@ behaviors {
        };
    };
 
+   /*reset bootloader tapdance*/
+behaviors {
+        rst_btldr: reset_bootloader {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RESET_BOOTLOADER";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&reset>, <&bootloader>;
+       };
+   };
+
    keymap {
          compatible = "zmk,keymap";
             default_layer {
@@ -261,13 +272,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &reset         &bt0          &bt1          &bt2          &bt3        &out_tog              &tog 0       &kp F7        &kp F8        &kp F9        &kp F10       &reset
+      &rst_btldr      &bt0          &bt1          &bt2          &bt3        &out_tog              &tog 1       &kp F7        &kp F8        &kp F9        &kp F10      &rst_btldr
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 1       &kp F4        &kp F5        &kp F6        &kp F11       &trans
+       &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &tog 2       &kp F1        &kp F2        &kp F3        &kp F12       &trans
+       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &trans       &trans        &trans               &trans       &trans        &trans    
