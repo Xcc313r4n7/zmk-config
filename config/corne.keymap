@@ -83,14 +83,15 @@ behaviors {
        };
    };    
 
-/*output key modmorph*/
+/*output key holdtap*/
 behaviors {
         out_tog: output_toggle {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-hold-tap";
             label = "OUTPUT_TOGGLE";
             #binding-cells = <0>;
-            bindings = <&out OUT_TOG>, <&out OUT_BLE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&out OUT_TOG>, <&out OUT_USB>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
        };
    };
 
@@ -143,44 +144,48 @@ macros {
         };
     };
 
-/*bluetooth key modmorphs*/
+/*bluetooth key holdtaps*/
 behaviors {
         bt0: bluetooth_0_clear {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_0_CLEAR";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             bindings = <&bt BT_SEL 0>, <&clr_bt_0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
        };
    };
 
 behaviors {
         bt1: bluetooth_1_clear {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_1_CLEAR";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             bindings = <&bt BT_SEL 1>, <&clr_bt_1>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
        };
    };
 
 behaviors {
         bt2: bluetooth_2_clear {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_2_CLEAR";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             bindings = <&bt BT_SEL 2>, <&clr_bt_2>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
        };
    };
 
 behaviors {
         bt3: bluetooth_3_clear {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_3_CLEAR";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             bindings = <&bt BT_SEL 3>, <&clr_bt_3>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
        };
    };
 
@@ -272,7 +277,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-      &rst_btldr      &bt0          &bt1          &bt2          &bt3        &out_tog              &tog 1       &kp F7        &kp F8        &kp F9        &kp F10      &rst_btldr
+       &trans         &bt0          &bt1          &bt2          &bt3        &out_tog              &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &trans    
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
@@ -281,7 +286,7 @@ behaviors {
        &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans        &trans               &trans       &trans        &trans    
+                                                  &trans       &trans       &rst_btldr          &rst_btldr     &trans        &trans    
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
