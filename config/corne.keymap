@@ -319,7 +319,7 @@ behaviors {
        &trans         &none         &none         &none         &none         &none               &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans        &trans             &kp C_STOP    &kp C_PP      &kp C_MUTE
+                                                  &trans       &trans        &trans             &kp C_MUTE    &kp C_PP      &kp C_STOP
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
@@ -352,7 +352,7 @@ behaviors {
        &trans       &kp PIPE       &kp AT        &kp HASH     &kp DOLLAR   &kp PERCENT          &kp CARET      &kp AMPS    &kp ASTERISK   &kp MINUS     &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp BSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT              &kp LT       &kp LPAR       &kp LBKT     &kp LBRC      &kp FSLH       &trans
+       &trans       &kp FSLH      &kp RBRC      &kp RBKT      &kp RPAR       &kp GT              &kp LT       &kp LPAR       &kp LBKT     &kp LBRC        &trans      &kp BSLH    
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &trans       &trans        &trans               &trans       &trans        &trans    
