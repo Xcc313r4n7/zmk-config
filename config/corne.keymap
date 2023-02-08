@@ -194,7 +194,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_0_CLEAR";
             #binding-cells = <2>;
-            bindings = <&sel_bt_0>, <&clr_bt_0>;
+            bindings = <&clr_bt_0>, <&sel_bt_0>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -205,7 +205,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_1_CLEAR";
             #binding-cells = <2>;
-            bindings = <&sel_bt_1>, <&clr_bt_1>;
+            bindings = <&clr_bt_1>, <&sel_bt_1>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -216,7 +216,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_2_CLEAR";
             #binding-cells = <2>;
-            bindings = <&sel_bt_2>, <&clr_bt_2>;
+            bindings = <&clr_bt_2>, <&sel_bt_2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -227,7 +227,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_3_CLEAR";
             #binding-cells = <2>;
-            bindings = <&sel_bt_3>, <&clr_bt_3>;
+            bindings = <&clr_bt_3>, <&sel_bt_3>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -293,7 +293,7 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp V         &kp B               &kp N         &kp M        &cscol         &pcol        &exques     &kp C_VOL_DN
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &mo 3       &kp SPACE      &kp ESC            &kp ENTER     &kp BSPC      &kp DEL
+                                                  &mo 3       &kp SPACE      &kp ESC        &ltrpt 6 ENTER &krpt RSHFT BSPC &ltrpt 7 DEL
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
