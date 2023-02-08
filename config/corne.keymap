@@ -95,6 +95,50 @@ behaviors {
        };
    };
 
+/*bluetooth press macros*/
+macros {
+        sel_bt_0: sel_bt_0 {
+            label = "ZM_sel_bt_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 0>
+                ;
+        };
+    };
+
+macros {
+        sel_bt_1: sel_bt_1 {
+            label = "ZM_sel_bt_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 1>
+                ;
+        };
+    };
+
+macros {
+        sel_bt_2: sel_bt_2 {
+            label = "ZM_sel_bt_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 2>
+                ;
+        };
+    };
+
+macros {
+        sel_bt_3 sel_bt_3 {
+            label = "ZM_sel_bt_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 3>
+                ;
+        };
+    };
 /*bluetooth clear macros*/
 macros {
         clr_bt_0: clr_bt_0 {
@@ -150,7 +194,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_0_CLEAR";
             #binding-cells = <2>;
-            bindings = <&bt BT_SEL 0>, <&clr_bt_0>;
+            bindings = <&sel_bt_0>, <&clr_bt_0>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -161,7 +205,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_1_CLEAR";
             #binding-cells = <2>;
-            bindings = <&bt BT_SEL 1>, <&clr_bt_1>;
+            bindings = <&sel_bt_1>, <&clr_bt_1>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -172,7 +216,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_2_CLEAR";
             #binding-cells = <2>;
-            bindings = <&bt BT_SEL 2>, <&clr_bt_2>;
+            bindings = <&sel_bt_2>, <&clr_bt_2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
@@ -183,7 +227,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_3_CLEAR";
             #binding-cells = <2>;
-            bindings = <&bt BT_SEL 3>, <&clr_bt_3>;
+            bindings = <&sel_bt_3>, <&clr_bt_3>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
        };
