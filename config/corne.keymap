@@ -364,7 +364,7 @@ behaviors {
        &trans       &kp PIPE       &kp AT        &kp HASH     &kp DOLLAR   &kp PERCENT          &kp CARET      &kp AMPS    &kp ASTERISK   &kp MINUS     &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans     &kp BACKSLASH   &kp RBRC      &kp RBKT      &kp RPAR       &kp GT              &kp LT       &kp LPAR       &kp LBKT     &kp LBRC        &trans      &kp SLASH
+       &trans     &kp BACKSLASH   &kp RBRC      &kp RBKT      &kp RPAR       &kp GT              &kp LT       &kp LPAR       &kp LBKT     &kp LBRC      &kp SLASH      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &trans       &trans        &trans               &trans       &trans        &trans    
