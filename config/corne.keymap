@@ -95,6 +95,18 @@ behaviors {
        };
    };
 
+/*bootloader holdtap*/
+behaviors {
+        btldr: bootloader_reset {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BOOTLOADER_RESET";
+            #binding-cells = <2>;
+            bindings = <&bootloader>, <&reset>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <500>;
+       };
+   };
+
 /*bluetooth press macros*/
 macros {
         sel_bt_0: sel_bt_0 {
@@ -373,7 +385,7 @@ behaviors {
        &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans        &reset              &reset        &trans        &trans    
+                                                  &trans       &trans        &btldr              &btldr        &trans        &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
