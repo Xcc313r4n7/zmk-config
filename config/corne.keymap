@@ -95,18 +95,6 @@ behaviors {
        };
    };
 
-/*bootloader holdtap*/
-behaviors {
-        btldr: bootloader_reset {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BOOTLOADER_RESET";
-            #binding-cells = <2>;
-            bindings = <&bootloader>, <&reset>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <500>;
-       };
-   };
-
 /*bluetooth press macros*/
 macros {
         sel_bt_0: sel_bt_0 {
@@ -382,10 +370,10 @@ behaviors {
        &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD  &none             &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
+       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &reset            &reset        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans       &btldr 0 0          &btldr 0 0     &trans        &trans
+                                                  &trans       &trans      &bootloader         &bootloader     &trans        &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
