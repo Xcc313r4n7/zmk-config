@@ -310,13 +310,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none               &none         &none         &none         &none         &none        &trans
+       &reset        &trans        &trans         &trans        &trans       &trans              &trans        &trans         &trans        &trans       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none               &none       &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &trans
+     &bootloader     &trans        &trans         &trans        &trans       &trans              &trans      &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none               &none         &none         &none         &none         &none        &trans
+       &trans        &trans        &trans         &trans        &trans       &trans              &trans        &trans         &trans        &trans       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &trans       &trans        &trans             &kp C_MUTE    &kp C_PP      &kp C_STOP
@@ -337,7 +337,7 @@ behaviors {
        &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)           &kp COMMA       &kp N1       &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &none         &none        &trans             &kp PERIOD      &kp N0      &kp ENTER       
+                                                  &trans       &trans        &trans             &kp PERIOD      &kp N0      &kp ENTER
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|
                   >;
                };
@@ -346,13 +346,13 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &kp GRAVE     &kp TILDE       &none         &none         &none              &none         &none         &none        &kp UNDER     &kp EQUAL      &trans
+       &trans       &kp GRAVE     &kp TILDE      &trans        &trans         &trans             &trans        &trans         &trans      &kp UNDER     &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans       &kp PIPE       &kp AT        &kp HASH     &kp DOLLAR   &kp PERCENT          &kp CARET      &kp AMPS    &kp ASTERISK   &kp MINUS     &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans     &kp BACKSLASH   &kp RBRC      &kp RBKT      &kp RPAR       &kp GT              &kp LT       &kp LPAR       &kp LBKT     &kp LBRC      &kp SLASH      &trans
+       &trans     &kp BACKSLASH   &kp LBRC      &kp LBKT      &kp LPAR       &kp LT              &kp GT       &kp RPAR       &kp RBKT     &kp RBRC      &kp SLASH      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                                   &trans       &trans        &trans               &trans       &trans        &trans    
@@ -364,16 +364,16 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0 &out_tog OUT_USB OUT_TOG   &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &trans    
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0 &out_tog OUT_USB OUT_TOG   &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &reset
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
+       &trans  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11     &bootloader
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &reset            &reset        &kp F1        &kp F2        &kp F3        &kp F12       &trans
+       &trans  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &trans            &trans        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans      &bootloader         &bootloader     &trans        &trans
+                                                  &trans       &trans        &trans              &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
