@@ -418,7 +418,7 @@ behaviors {
        &trans &rgb_ug RGB_SPD  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD   &trans        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                 &trans &ot OUT_USB OUT_TOG &rgb_ug RGB_TOG     &rst_btldr     &trans        &trans
+                                        &ext_power EP_TOG &ot OUT_USB OUT_TOG &rgb_ug RGB_TOG   &rst_btldr     &trans        &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
