@@ -139,6 +139,18 @@ macros {
                 ;
         };
     };
+
+macros {
+        sel_bt_4: sel_bt_4 {
+            label = "ZM_sel_bt_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_SEL 4>
+                ;
+        };
+    };
+
 /*bluetooth clear macros*/
 macros {
         clr_bt_0: clr_bt_0 {
