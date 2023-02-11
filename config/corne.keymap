@@ -284,7 +284,7 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp D         &kp V               &kp K         &kp H        &cscol         &pcol        &exques      &kp RCTRL
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                              &ltrpt 4 ESC &krpt LSHFT BSPC &ltrpt 5 DEL      &ltrpt 6 TAB  &ltrpt 4 SPACE &ltrpt 7 ENTER
+                                              &ltrpt 4 ESC &krpt LSHFT BSPC &ltrpt 5 DEL      &ltrpt 6 TAB  &ltrpt 7 SPACE &ltrpt 8 ENTER
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
@@ -318,7 +318,7 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp V         &kp B               &kp N         &kp M        &cscol         &pcol        &exques       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                 &kp ESC      &kp SPACE       &mo 3         &ltrpt 6 ENTER &krpt RSHFT BSPC &ltrpt 7 DEL
+                                                 &kp ESC      &kp SPACE       &mo 3         &ltrpt 6 ENTER  &ltrpt 7 BSPC  &ltrpt 8 DEL
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
