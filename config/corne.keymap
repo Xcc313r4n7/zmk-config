@@ -12,15 +12,14 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <../boards/shields/corne/boards/nice_nano.overlay>
 
-#define DEFAULT     0
-#define QWERTY      1
-#define GAMING      2
-#define GAMING_NUM  3
-#define FUNCTIONS   4
-#define NAV_NUMBERS 5
-#define SYMBOLS     6
-#define MEDIA       7
-#define SETTINGS    8
+#define DEFAULT            0
+#define QWERTY             1
+#define GAMING             2
+#define GAMING_NUMBERS     3
+#define MEDIA_MOUSE        4
+#define NAVIGATION_NUMBERS 5
+#define SYMBOLS            6
+#define SETTINGS_FUNCTIONS 7
 
 &led_strip {
     chain-length = <27>;
@@ -284,7 +283,7 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp D         &kp V               &kp K         &kp H        &cscol         &pcol        &exques      &kp RCTRL
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                              &ltrpt 4 ESC &krpt LSHFT BSPC &ltrpt 5 DEL      &ltrpt 6 TAB  &ltrpt 7 SPACE &ltrpt 8 ENTER
+                                              &ltrpt 4 ESC &krpt LSHFT BSPC &ltrpt 5 DEL     &ltrpt 6 TAB &krpt RSHFT SPACE &ltrpt 7 ENTER
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
@@ -318,12 +317,12 @@ behaviors {
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp V         &kp B               &kp N         &kp M        &cscol         &pcol        &exques       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                 &kp ESC      &kp SPACE       &mo 3         &ltrpt 6 ENTER  &ltrpt 7 BSPC  &ltrpt 8 DEL
+                                                 &kp ESC      &kp SPACE       &mo 3         &ltrpt 6 ENTER  &lrpt 4 BSPC  &ltrpt 7 DEL
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                  
                   >;
                };
 
-            gaming_num_layer {
+            gaming_numbers_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
@@ -341,25 +340,25 @@ behaviors {
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|
                      >;
                };
-            functions_layer {
+            media_mouse_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans         &trans        &trans       &trans              &trans        &kp F7        &kp F8        &kp F9        &kp F10       &trans
+       &trans        &trans     &kp C_VOL_UP  &kp C_VOL_DN   &kp C_MUTE      &trans              &trans        &trans         &trans        &trans       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans         &trans        &trans       &trans              &trans        &kp F4        &kp F5        &kp F6        &kp F11       &trans
+       &trans      &kp C_PREV      &kp C_PP     &kp C_STOP   &kp C_NEXT      &trans              &trans        &trans         &trans        &trans       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans         &trans        &trans     &bootloader           &trans        &kp F1        &kp F2        &kp F3        &kp F12       &trans
+       &trans        &trans        &trans        &trans        &trans      &bootloader           &trans        &trans         &trans        &trans       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
-                                                  &trans       &trans         &reset             &trans        &trans         &trans
+                                                 &trans        &trans        &reset              &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
-            nav_numbers_layer {
+            navigation_numbers_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
@@ -395,36 +394,18 @@ behaviors {
 //                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|                
                   >;
                };
-            media_layer {
+            settings_functions_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans         &trans       &trans        &trans              &trans        &trans         &trans        &trans       &trans        &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0              &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans      &kp C_PREV   &kp C_VOL_UP  &kp C_VOL_DN   &kp C_NEXT      &trans              &trans        &trans         &trans        &trans       &trans        &trans
+       &trans &rgb_ug RGB_SPI  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI    &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans        &trans        &trans         &trans       &trans        &reset              &trans        &trans         &trans        &trans       &trans        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||   ||             |             |             |
-                                                &kp C_STOP    &kp C_PP      &kp C_MUTE           &trans        &trans         &trans
-//                                           |_____________|_____________|_____________||   ||_____________|_____________|_____________|
-                  >;
-               };
-            settings_layer {
-                  bindings = <
-
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0              &tog 1       &trans         &trans        &trans       &trans        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans &rgb_ug RGB_SPI  &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI    &tog 2       &trans         &trans        &trans       &trans        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &trans &rgb_ug RGB_SPD  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &bootloader     &trans         &trans        &trans       &trans        &trans
+       &trans &rgb_ug RGB_SPD  &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &bootloader     &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||   ||             |             |             |
                                         &ext_power EP_TOG &ot OUT_USB OUT_TOG &rgb_ug RGB_TOG    &reset        &trans        &trans
