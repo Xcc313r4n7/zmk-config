@@ -311,7 +311,7 @@ behaviors {
        &kp TAB       &trans        &trans        &trans        &trans         &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-      &kp LSHFT      &trans        &trans        &trans        &trans         &trans             &trans        &trans        &trans        &trans        &trans      &kp L RSHFT
+      &kp LSHFT      &trans        &trans        &trans        &trans         &trans             &trans        &trans        &trans        &trans        &trans        &kp RSHFT
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans         &trans             &trans        &trans        &trans        &trans        &trans        &trans
