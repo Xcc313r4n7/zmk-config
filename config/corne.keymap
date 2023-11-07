@@ -1,5 +1,4 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
+/* * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -82,18 +81,6 @@ behaviors {
             quick-tap-ms = <200>;
        };
    };    
-
-/*output key holdtap*/
-behaviors {
-        ot: output_toggle {
-            compatible = "zmk,behavior-hold-tap";
-            label = "OUTPUT_TOGGLE";
-            #binding-cells = <2>;
-            bindings = <&out>, <&out>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <500>;
-       };
-   };
 
 /*bluetooth press macros*/
 macros {
@@ -344,7 +331,7 @@ behaviors {
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
-       &reset       &bt0 0 0       &bt1 0 0     &bt2 0 0      &bt3 0 0  &ot OUT_USB OUT_TOG       &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &trans
+       &reset       &bt0 0 0       &bt1 0 0     &bt2 0 0      &bt3 0 0    &out OUT_TOG            &tog 1       &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||   ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||   ||             |             |             |             |             |             |
     &bootloader &rgb_ug RGB_SPI &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI   &tog 2       &kp F4        &kp F5        &kp F6        &kp F11       &trans
