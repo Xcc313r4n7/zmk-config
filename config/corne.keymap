@@ -28,7 +28,7 @@
 / {
 
 /*modmorphs*/
-behaviors {
+   behaviors {
         cscol: comma_semicolon {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_SEMICOLON";
@@ -38,7 +38,7 @@ behaviors {
        };
    };
 
-behaviors {
+   behaviors {
         pcol: period_colon {
             compatible = "zmk,behavior-mod-morph";
             label = "PERIOD_COLON";
@@ -48,7 +48,7 @@ behaviors {
         };
     };
 
-behaviors {
+   behaviors {
         exques: exclamation_questionmark {
             compatible = "zmk,behavior-mod-morph";
             label = "EXCLAMATION_QUESTIONMARK";
@@ -85,7 +85,7 @@ behaviors {
 
 
 /*output key holdtap*/
-behaviors {
+   behaviors {
         ot: output_toggle {
             compatible = "zmk,behavior-hold-tap";
             label = "OUTPUT_TOGGLE";
@@ -98,8 +98,7 @@ behaviors {
 
 
 /*bluetooth press macros*/
-{
-    macros {
+   macros {
         sel_bt_0: sel_bt_0 {
             label = "ZM_sel_bt_0";
             compatible = "zmk,behavior-macro";
@@ -109,10 +108,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         sel_bt_1: sel_bt_1 {
             label = "ZM_sel_bt_1";
             compatible = "zmk,behavior-macro";
@@ -122,10 +119,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         sel_bt_2: sel_bt_2 {
             label = "ZM_sel_bt_2";
             compatible = "zmk,behavior-macro";
@@ -135,10 +130,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         sel_bt_3: sel_bt_3 {
             label = "ZM_sel_bt_3";
             compatible = "zmk,behavior-macro";
@@ -148,10 +141,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         sel_bt_4: sel_bt_4 {
             label = "ZM_sel_bt_4";
             compatible = "zmk,behavior-macro";
@@ -161,11 +152,9 @@ behaviors {
                 ;
         };
     };
-};
 
 /*bluetooth clear macros*/
-{
-    macros {
+   macros {
         clr_bt_0: clr_bt_0 {
             label = "ZM_clr_bt_0";
             compatible = "zmk,behavior-macro";
@@ -176,10 +165,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         clr_bt_1: clr_bt_1 {
             label = "ZM_clr_bt_1";
             compatible = "zmk,behavior-macro";
@@ -190,10 +177,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         clr_bt_2: clr_bt_2 {
             label = "ZM_clr_bt_2";
             compatible = "zmk,behavior-macro";
@@ -204,10 +189,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         clr_bt_3: clr_bt_3 {
             label = "ZM_clr_bt_3";
             compatible = "zmk,behavior-macro";
@@ -218,10 +201,8 @@ behaviors {
                 ;
         };
     };
-};
 
-{
-    macros {
+   macros {
         clr_bt_4: clr_bt_4 {
             label = "ZM_clr_bt_4";
             compatible = "zmk,behavior-macro";
@@ -235,7 +216,7 @@ behaviors {
 };
 
 /*bluetooth key holdtaps*/
-behaviors {
+   behaviors {
         bt0: bluetooth_0_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_0_CLEAR";
@@ -246,7 +227,7 @@ behaviors {
        };
    };
 
-behaviors {
+   behaviors {
         bt1: bluetooth_1_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_1_CLEAR";
@@ -257,7 +238,7 @@ behaviors {
        };
    };
 
-behaviors {
+   behaviors {
         bt2: bluetooth_2_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_2_CLEAR";
@@ -268,7 +249,7 @@ behaviors {
        };
    };
 
-behaviors {
+   behaviors {
         bt3: bluetooth_3_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_3_CLEAR";
@@ -279,7 +260,7 @@ behaviors {
        };
    };
 
-behaviors {
+   behaviors {
         bt4: bluetooth_4_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BLUETOOTH_4_CLEAR";
