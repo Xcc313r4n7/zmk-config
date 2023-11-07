@@ -98,7 +98,8 @@ behaviors {
 
 
 /*bluetooth press macros*/
-macros {
+{
+    macros {
         sel_bt_0: sel_bt_0 {
             label = "ZM_sel_bt_0";
             compatible = "zmk,behavior-macro";
@@ -108,8 +109,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         sel_bt_1: sel_bt_1 {
             label = "ZM_sel_bt_1";
             compatible = "zmk,behavior-macro";
@@ -119,8 +122,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         sel_bt_2: sel_bt_2 {
             label = "ZM_sel_bt_2";
             compatible = "zmk,behavior-macro";
@@ -130,8 +135,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         sel_bt_3: sel_bt_3 {
             label = "ZM_sel_bt_3";
             compatible = "zmk,behavior-macro";
@@ -141,8 +148,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         sel_bt_4: sel_bt_4 {
             label = "ZM_sel_bt_4";
             compatible = "zmk,behavior-macro";
@@ -152,9 +161,11 @@ macros {
                 ;
         };
     };
+};
 
 /*bluetooth clear macros*/
-macros {
+{
+    macros {
         clr_bt_0: clr_bt_0 {
             label = "ZM_clr_bt_0";
             compatible = "zmk,behavior-macro";
@@ -165,8 +176,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         clr_bt_1: clr_bt_1 {
             label = "ZM_clr_bt_1";
             compatible = "zmk,behavior-macro";
@@ -177,8 +190,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         clr_bt_2: clr_bt_2 {
             label = "ZM_clr_bt_2";
             compatible = "zmk,behavior-macro";
@@ -189,8 +204,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         clr_bt_3: clr_bt_3 {
             label = "ZM_clr_bt_3";
             compatible = "zmk,behavior-macro";
@@ -201,8 +218,10 @@ macros {
                 ;
         };
     };
+};
 
-macros {
+{
+    macros {
         clr_bt_4: clr_bt_4 {
             label = "ZM_clr_bt_4";
             compatible = "zmk,behavior-macro";
@@ -213,6 +232,7 @@ macros {
                 ;
         };
     };
+};
 
 /*bluetooth key holdtaps*/
 behaviors {
