@@ -19,7 +19,7 @@
 #define SETTINGS_FUNCTIONS 4
 #define MEDIA_NUMBERS      5
 #define SYMBOLS            6
-#define NAVIGATIO         7
+#define NAVIGATION         7
 
 &led_strip {
     chain-length = <27>;
