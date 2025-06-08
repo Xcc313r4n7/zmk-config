@@ -62,8 +62,8 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
        };
 
         krpt: key_repeat {
@@ -72,8 +72,8 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
        };
 
 /*output key holdtap*/
@@ -84,7 +84,7 @@
             #binding-cells = <2>;
             bindings = <&out>, <&out>;
             flavor = "tap-preferred";
-            tapping-term-ms = <500>;
+            tapping-term-ms = <1000>;
        };
 
 /*bluetooth key holdtaps*/
