@@ -303,7 +303,7 @@
        &trans        &kp LEFT      &kp UP       &kp DOWN      &kp RIGHT     &kp PSCRN           &trans    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(V)     &kp LC(Y)      &trans             &trans        &trans       &mkp MCLK      &trans        &trans        &trans
+       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(V)     &kp LC(Y)      &trans             &trans       &mkp MB4      &mkp MCLK      &trans        &mkp MB5      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &trans       &mkp LCLK     &mkp RCLK  
