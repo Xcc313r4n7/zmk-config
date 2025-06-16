@@ -1,0 +1,5 @@
+properties:
+  usage-pages:
+    type: array
+    contains:
+      type: number
