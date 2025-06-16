@@ -34,6 +34,7 @@
 
         cscol: comma_semicolon {
             compatible = "zmk,behavior-mod-morph";
+            display-name = "COMMA_SEMICOLON";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -41,6 +42,7 @@
 
         pcol: period_colon {
             compatible = "zmk,behavior-mod-morph";
+            display-name = "PERIOD_COLON";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -48,6 +50,7 @@
 
         quex: question_exclamation {
             compatible = "zmk,behavior-mod-morph";
+            display-name = "QUESTION_EXCLAMATION";
             #binding-cells = <0>;
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -58,19 +61,21 @@
         ltrpt: layertap_repeat {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
+            bindings = <&mo>, <&kp>;
             quick-tap-ms = <180>;
+            display-name = "LAYERTAP_REPEAT";
        };
 
-        krpt: key_repeat {
+        ssrpt: shiftspace_repeat {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
+            bindings = <&kp>, <&kp>;
             quick-tap-ms = <180>;
+            display-name = "SHIFTSPACE_REPEAT";
        };
 
 /*output key holdtap*/
@@ -78,9 +83,10 @@
         ot: output_toggle {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&out>, <&out>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&out>, <&out>;
+            display-name = "OUTPUT_TOGGLE";
        };
 
 /*bluetooth key holdtaps*/
@@ -88,41 +94,46 @@
         bt0: bluetooth_0_clear {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&clr_bt_0>, <&sel_bt_0>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&clr_bt_0>, <&sel_bt_0>;
+            display-name = "BLUETOOTH_0_CLEAR";
        };
 
         bt1: bluetooth_1_clear {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&clr_bt_1>, <&sel_bt_1>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&clr_bt_1>, <&sel_bt_1>;
+            display-name = "BLUETOOTH_1_CLEAR";
        };
 
         bt2: bluetooth_2_clear {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&clr_bt_2>, <&sel_bt_2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&clr_bt_2>, <&sel_bt_2>;
+            display-name = "BLUETOOTH_2_CLEAR";
        };
 
         bt3: bluetooth_3_clear {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&clr_bt_3>, <&sel_bt_3>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&clr_bt_3>, <&sel_bt_3>;
+            display-name = "BLUETOOTH_3_CLEAR";
        };
 
         bt4: bluetooth_4_clear {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&clr_bt_4>, <&sel_bt_4>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&clr_bt_4>, <&sel_bt_4>;
+            display-name = "BLUETOOTH_4_CLEAR";
        };
    };
 
@@ -131,6 +142,7 @@
 /*bluetooth press macros*/
 
         sel_bt_0: sel_bt_0 {
+            display-name = "ZM_sel_bt_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -139,6 +151,7 @@
         };
 
         sel_bt_1: sel_bt_1 {
+            display-name = "ZM_sel_bt_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -147,6 +160,7 @@
         };
 
         sel_bt_2: sel_bt_2 {
+            display-name = "ZM_sel_bt_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -155,6 +169,7 @@
         };
 
         sel_bt_3: sel_bt_3 {
+            display-name = "ZM_sel_bt_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -163,6 +178,7 @@
         };
 
         sel_bt_4: sel_bt_4 {
+            display-name = "ZM_sel_bt_4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -173,6 +189,7 @@
 /*bluetooth clear macros*/
 
         clr_bt_0: clr_bt_0 {
+            display-name = "ZM_clr_bt_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -182,6 +199,7 @@
         };
 
         clr_bt_1: clr_bt_1 {
+            display-name = "ZM_clr_bt_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -191,6 +209,7 @@
         };
 
         clr_bt_2: clr_bt_2 {
+            display-name = "ZM_clr_bt_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -200,6 +219,7 @@
         };
 
         clr_bt_3: clr_bt_3 {
+            display-name = "ZM_clr_bt_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -209,6 +229,7 @@
         };
 
         clr_bt_4: clr_bt_4 {
+            display-name = "ZM_clr_bt_4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -233,7 +254,7 @@
       &kp LCTRL       &kp Z         &kp X         &kp C         &kp D         &kp V              &kp K         &kp H        &cscol         &pcol         &quex       &kp RCTRL
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &ltrpt 4 ESC  &ltrpt 2 BSPC &ltrpt 3 TAB     &ltrpt 1 RET &krpt RSHFT SPACE &ltrpt 4 DEL
+                                               &ltrpt 4 ESC  &ltrpt 2 BSPC &ltrpt 3 TAB     &ltrpt 1 RET &ssrpt RSHFT SPACE &ltrpt 4 DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
