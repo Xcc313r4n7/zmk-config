@@ -309,7 +309,7 @@
        &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS          &kp PSCRN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans            &mkp MB3      &mkp MB1      &mkp MB2
+                                                 &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3   
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };    
