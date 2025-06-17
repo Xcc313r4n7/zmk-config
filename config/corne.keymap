@@ -263,10 +263,10 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp GRAVE     &kp TILDE      &trans        &trans        &trans             &trans        &trans        &trans       &kp PLUS      &kp EQUAL      &trans
+       &trans       &kp GRAVE     &kp TILDE      &trans        &trans        &trans             &trans        &trans        &trans       &kp UNDER     &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp PIPE       &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp STAR      &kp MINUS     &kp UNDER      &trans
+       &trans       &kp PIPE       &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp STAR      &kp MINUS      &kp PLUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &kp LT       &kp LBRC      &kp LBKT      &kp LPAR      &kp BSLH            &kp FSLH     &kp RPAR       &kp RBKT     &kp RBRC       &kp GT        &trans
@@ -287,7 +287,7 @@
        &trans         &kp F5       &kp F6        &kp F7        &kp F8        &trans            &kp STAR       &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans             &trans        &kp N1        &kp N2        &kp N3        &trans        &trans
+       &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans             &cscol        &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &trans       &trans        &trans             &kp RET       &kp N0         &pcol 
