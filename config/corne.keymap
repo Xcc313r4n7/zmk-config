@@ -246,13 +246,13 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp G              &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_PREV
+     &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp G              &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
       &kp C_MUTE      &kp A     &mtrpt LGUI R &mtrpt LALT S &mtrpt LCTRL T    &kp D              &kp H    &mtrpt RCTRL N &mtrpt RALT E &mtrpt RGUI I     &kp O       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp V         &kp B              &kp K         &kp M        &cscol         &pcol         &quex       &kp C_NEXT
+     &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp V         &kp B              &kp K         &kp M        &cscol         &pcol         &quex       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                             &ltrpt 2 ESC &mtrpt LSHFT BSPC &ltrpt 3 DEL     &ltrpt 1 TAB &mtrpt RSHFT SPACE &ltrpt 4 RET
@@ -288,7 +288,7 @@
        &trans         &kp F5       &kp F6        &kp F7        &kp F8        &trans            &kp STAR       &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans             &trans        &kp N1        &kp N2        &kp N3        &kp RET       &trans
+       &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3        &kp RET       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &trans       &trans        &trans             &cscol        &kp N0         &pcol  
@@ -309,25 +309,25 @@
        &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS          &kp PSCRN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3   
+                                                 &trans        &trans        &trans            &mkp MB3      &mkp MB1      &mkp MB2
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
+                  >;O
                };    
             set_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-&ot OUT_USB OUT_TOG &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0            &trans        &trans        &trans        &trans        &trans        &trans
+&ot OUT_USB OUT_TOG &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0           &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0  &ot OUT_USB OUT_TOG
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-&rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_SPI &trans        &trans        &trans        &trans        &trans        &trans
+&rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_SPI &rgb_ug RGB_SPI &rgb_ug RGB_BRI &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_EFF &rgb_ug RGB_TOG
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-&ext_power EP_TOG &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_SPD &trans      &trans        &trans        &trans        &trans        &trans
+&ext_power EP_TOG &rgb_ug RGB_EFR &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_SPD &rgb_ug RGB_SPD &rgb_ug RGB_BRD &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_EFR &ext_power EP_TOG
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans      &sys_reset    &bootloader          &trans        &trans        &trans
+                                                 &trans      &sys_reset    &bootloader        &bootloader   &sys_reset      &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
