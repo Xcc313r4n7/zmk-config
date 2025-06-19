@@ -19,7 +19,7 @@
 #define DEF     0
 #define SYM     1
 #define FUN_NUM 2
-#define NAV_MED 3
+#define NAV     3
 #define SET     4
 
 
@@ -65,7 +65,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
-            quick-tap-ms = <200>;
+            quick-tap-ms = <175>;
             display-name = "LAYERTAP_REPEAT";
        };
 
@@ -332,7 +332,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
-            nav_med_layer {
+            nav_layer {
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
