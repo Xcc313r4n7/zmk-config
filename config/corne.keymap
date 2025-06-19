@@ -79,6 +79,31 @@
             display-name = "MODTAP_REPEAT";
        };
 
+ /*homerow mods*/
+
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;
+        };
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 39 40 41>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;
+       };
+
 /*output key holdtap*/
 
         ot: output_toggle {
@@ -187,6 +212,18 @@
                 ;
         };
 
+/*double zero macro*/
+
+        00: 00 {
+            display-name = "ZM_00";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp N0>
+                , <&macro_tap &kp N0>
+                ;
+        };
+
 /*bluetooth clear macros*/
 
         clr_bt_0: clr_bt_0 {
@@ -249,7 +286,7 @@
      &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp G              &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE      &kp A     &mtrpt LGUI R &mtrpt LALT S &mtrpt LCTRL T    &kp D              &kp H    &mtrpt RCTRL N &mtrpt RALT E &mtrpt RGUI I     &kp O       &kp C_PP
+      &kp C_MUTE      &kp A     &hml LGUI R    &hml LALT S   &hml LCTRL T     &kp D              &kp H      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp V         &kp B              &kp K         &kp M        &cscol         &pcol         &quex       &kp C_PREV
@@ -264,13 +301,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp GRAVE     &kp TILDE      &trans        &trans        &trans             &trans        &trans        &trans       &kp UNDER     &kp EQUAL      &trans
+       &trans       &kp GRAVE     &kp PIPE      &kp BSLH      &kp PRCNT      &trans             &trans       &kp CARET    &kp FSLH       &kp UNDER     &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp PIPE       &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp STAR      &kp MINUS      &kp PLUS      &trans
+       &trans       &kp TILDE       &kp AT      &kp HASH      &kp DLLR       &trans             &trans       &kp AMPS      &kp STAR      &kp MINUS      &kp PLUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT       &kp LBRC      &kp LBKT      &kp LPAR      &kp BSLH           &kp FSLH      &kp RPAR       &kp RBKT     &kp RBRC       &kp GT        &trans
+       &trans        &kp LT       &kp LBRC      &kp LBKT      &kp LPAR       &trans             &trans       &kp RPAR       &kp RBKT     &kp RBRC       &kp GT        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &trans        &trans        &trans
@@ -291,7 +328,7 @@
        &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3        &kp RET       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &trans       &trans        &trans             &cscol        &kp N0         &pcol  
+                                                  &trans       &trans        &trans              &pcol        &kp N0         &00
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -300,16 +337,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans      &kp C_BRI_UP  &kp C_BRI_DN    &trans        &trans             &trans        &trans       &mkp MB4      &mkp MB5       &trans        &trans
+       &trans        &trans      &kp C_BRI_UP  &kp C_BRI_DN    &kp INS       &trans             &trans      &kp PSCRN      &mkp MB4      &mkp MB5       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &kp LEFT      &kp UP       &kp DOWN      &kp RIGHT      &trans             &trans     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &kp INS          &kp PSCRN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
+       &trans        &kp HOME     &kp PG_UP     &kp PG_DN      &kp END       &trans             &trans    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans            &mkp MB3      &mkp MB1      &mkp MB2
+                                                 &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };    
