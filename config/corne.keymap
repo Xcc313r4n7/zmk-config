@@ -286,13 +286,13 @@
      &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp G              &kp J         &kp L         &kp U         &kp Y       &kp APOS     &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE      &kp A     &hml LGUI R    &hml LALT S   &hml LCTRL T     &kp D              &kp H      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O       &kp C_PP
+      &kp C_MUTE      &kp A     &hml LALT R    &hml LGUI S   &hml LCTRL T     &kp D              &kp H      &hmr RCTRL N  &hmr RGUI E   &hmr RALT I      &kp O       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp V         &kp B              &kp K         &kp M        &cscol         &pcol         &quex       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                            &ltrpt 2 ESC &mtrpt LSHFT BSPC &ltrpt 3 DEL     &ltrpt 1 TAB &mtrpt RSHFT SPACE &ltrpt 4 RET
+                                            &ltrpt 2 ESC &mtrpt LSHFT BSPC &ltrpt 3 DEL     &ltrpt 1 RET &mtrpt RSHFT SPACE &ltrpt 4 TAB
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
