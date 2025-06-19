@@ -14,7 +14,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <../boards/shields/corne/boards/nice_nano_v2.overlay>
 
 #define DEF     0
 #define SYM     1
