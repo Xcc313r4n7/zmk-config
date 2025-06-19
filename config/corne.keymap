@@ -75,7 +75,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
-            quick-tap-ms = <200>;
+            quick-tap-ms = <175>;
             display-name = "MODTAP_REPEAT";
        };
 
