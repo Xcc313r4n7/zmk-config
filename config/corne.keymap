@@ -214,8 +214,8 @@
 
 /*double zero macro*/
 
-        00: 00 {
-            display-name = "ZM_00";
+        d0: d0 {
+            display-name = "ZM_d0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -328,7 +328,7 @@
        &trans         &kp F9       &kp F10       &kp F11       &kp F12       &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3        &kp RET       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &trans       &trans        &trans              &pcol        &kp N0         &00
+                                                  &trans       &trans        &trans              &pcol        &kp N0         &d0
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
