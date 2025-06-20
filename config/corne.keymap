@@ -291,7 +291,7 @@
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp V         &kp B              &kp K         &kp M        &cscol         &pcol         &quex       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                            &ltrpt 2 ESC &mtrpt LSHFT BSPC &ltrpt 3 DEL     &ltrpt 1 RET &mtrpt RSHFT SPACE &ltrpt 4 TAB
+                                            &ltrpt 2 ESC &mtrpt LSHFT BSPC &ltrpt 3 DEL     &ltrpt 1 TAB &mtrpt RSHFT SPACE &ltrpt 4 RET
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
