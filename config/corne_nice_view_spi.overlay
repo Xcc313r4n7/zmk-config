@@ -1,5 +1,0 @@
-/ {
-    aliases {
-        nice_view_spi = &spi1;
-    };
-};
