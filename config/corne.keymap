@@ -57,8 +57,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&kp>;
             quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
             display-name = "LAYERTAP_REPEAT";
        };
 
@@ -67,7 +67,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             display-name = "MODTAP_REPEAT";
