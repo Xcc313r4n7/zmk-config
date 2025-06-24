@@ -277,7 +277,7 @@
        &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0            &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans       &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp PSCRN     &kp LEFT       &kp UP       &kp DOWN      &kp RIGHT      &trans
+       &trans        &trans       &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp PSCRN     &kp LEFT       &kp DOWN      &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans      &kp C_BRI_UP  &kp C_BRI_DN  &out OUT_TOG    &trans            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
