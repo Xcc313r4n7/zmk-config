@@ -315,10 +315,10 @@
        &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH           &bt4 0 0      &bt3 0 0      &bt2 0 0      &bt1 0 0      &bt0 0 0       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp DLLR            &trans       &kp RCTRL     &kp RALT      &kp RGUI       &trans        &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp AMPS            &trans       &kp RCTRL     &kp RALT      &kp RGUI       &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp TILDE      &kp AT       &kp HASH      &kp CARET     &kp AMPS            &trans      &out OUT_TOG  &kp C_BRI_DN  &kp C_BRI_UP    &trans        &trans
+       &trans       &kp TILDE      &kp AT       &kp HASH      &kp DLLR      &kp CARET           &trans      &out OUT_TOG  &kp C_BRI_DN  &kp C_BRI_UP    &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp UNDER     &kp PIPE            &trans        &trans        &trans
