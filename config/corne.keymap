@@ -56,7 +56,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <175>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
             display-name = "LAYERTAP_REPEAT";
        };
@@ -66,7 +66,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <175>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             display-name = "MODTAP_REPEAT";
        };
@@ -78,7 +78,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 18 19 20 39 40 41>; // List of keys on the right side of the keyboard and all thumb keys
@@ -89,7 +89,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 39 40 41>; // List of keys on the left side of the keyboard and all thumb keys
