@@ -254,7 +254,7 @@
          combo_system {
             timeout-ms = <50>;
             key-positions = <20 39>;
-            bindings = <&ltp SYS trans>;
+            bindings = <&ltp SYS &trans>;
        };
 
 
