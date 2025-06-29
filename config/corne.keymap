@@ -246,14 +246,14 @@
                 ;
         };
 
-   combos {
+   conditional_layers {
 
 /*system layer combo*/
 
-         combo_system {
-            timeout-ms = <50>;
-            key-positions = <20 39>;
-            bingings = <&mo SYS>;
+            compatible = "zmk,conditional-layers";
+                system_layer {
+                if-layers = <NUM SYM>;
+                then-layer = <SYS>;
        };
     };
 };
