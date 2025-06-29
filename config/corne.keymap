@@ -268,7 +268,7 @@
      &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp B              &kp J         &kp L         &kp U         &kp Y       &kp APOS      &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-&mtp C_MIC_MUTE C_MUTE &kp A     &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O   &mtp C_STOP C_PP
+ &mtp C_MIC_MUTE C_MUTE &kp A    &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O   &mtp C_STOP C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp D         &kp V              &kp K         &kp H        &cscol         &pcol         &quex       &kp C_PREV
