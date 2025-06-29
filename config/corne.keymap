@@ -251,8 +251,8 @@
 /*system layer combo*/
 
             compatible = "zmk,conditional-layers";
-                system_layer {
-                if-layers = <NUM SYM>;
+                tri_state {
+                if-layers = <NAV FUN>;
                 then-layer = <SYS>;
        };
     };
@@ -260,7 +260,7 @@
 
    keymap {
          compatible = "zmk,keymap";
-            bas_layer {
+            base_layer {
                   display-name = "CLM4K DH";
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
@@ -278,7 +278,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
-            nav_layer {
+            navigation_layer {
                   display-name = "N4V";
                   bindings = <
 
@@ -297,7 +297,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
-            num_layer {
+            number_layer {
                   display-name = "N#M83R5";
                   bindings = <
 
@@ -316,7 +316,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
-            sym_layer {
+            symbol_layer {
                   display-name = "5YM80L5";
                   bindings = <
 
@@ -335,7 +335,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
                   >;
                };
-            fun_layer {
+            function_layer {
                   display-name = "FUNC710N";
                   bindings = <
 
@@ -354,7 +354,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
-            sys_layer {
+            system_layer {
                   display-name = "5Y573M";
                   bindings = <
 
