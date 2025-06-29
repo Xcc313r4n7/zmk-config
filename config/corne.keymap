@@ -62,6 +62,16 @@
             display-name = "LAYERTAP";
        };
 
+        lto: layertog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <175>;
+            bindings = <&to>, <&tog>;
+            display-name = "LAYERTOG";
+       };
+
         mtp: modtap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -288,7 +298,7 @@
        &trans        &trans       &trans         &trans        &trans        &trans             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &tog NAV      &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp PSCRN     &kp LEFT       &kp DOWN      &kp UP       &kp RIGHT      &trans
+       &trans      &lto NAV NAV    &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp PSCRN     &kp LEFT       &kp DOWN      &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans       &trans         &trans        &trans        &trans            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
@@ -307,7 +317,7 @@
        &trans        &trans       &trans         &trans        &trans        &trans            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &tog NUM      &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp STAR       &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans      &lto NUM NUM   &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp STAR       &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans       &trans         &trans        &trans        &trans        &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
@@ -326,7 +336,7 @@
        &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH            &trans       &trans         &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp AMPS            &trans       &kp RCTRL     &kp RALT      &kp RGUI      &tog SYM       &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp AMPS            &trans       &kp RCTRL     &kp RALT      &kp RGUI     &lto SYM SYM    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans       &kp TILDE      &kp AT       &kp HASH      &kp DLLR      &kp CARET           &trans       &trans         &trans        &trans        &trans        &trans
@@ -345,7 +355,7 @@
        &trans        &kp F1        &kp F2        &kp F3        &kp F4        &trans             &trans       &trans         &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F5        &kp F6        &kp F7        &kp F8        &trans             &trans       &kp RCTRL     &kp RALT      &kp RGUI      &tog FUN       &trans
+       &trans        &kp F5        &kp F6        &kp F7        &kp F8        &trans             &trans       &kp RCTRL     &kp RALT      &kp RGUI     &lto FUN FUN    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &kp F9        &kp F10       &kp F11       &kp F12       &trans             &trans        &trans        &trans        &trans        &trans        &trans
@@ -364,7 +374,7 @@
        &trans      &bootloader    &sys_reset     &trans        &trans        &trans             &trans        &trans        &trans        &trans       &sys_reset   &bootloader
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG         &trans        &trans      &kp C_BRI_DN  &kp C_BRI_UP   &tog SYS       &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG         &trans        &trans      &kp C_BRI_DN  &kp C_BRI_UP  &lto SYS SYS    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
