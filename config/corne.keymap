@@ -55,7 +55,7 @@
         ltp: layertap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <175>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
@@ -254,6 +254,7 @@
             timeout-ms = <50>;
             key-positions = <20 39>;
             layers = <SYS>;
+            require-prior-idle-ms = <125>;
        };
     };
 };
