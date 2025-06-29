@@ -268,13 +268,13 @@
      &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp B              &kp J         &kp L         &kp U         &kp Y       &kp APOS      &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE      &kp A      &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O       &kp C_PP
+&mtp C_MIC_MUTE C_MUTE &kp A     &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O   &mtp C_STOP C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp D         &kp V              &kp K         &kp H        &cscol         &pcol         &quex       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV ESC &mtp LSHFT SPACE &ltp NUM TAB     &ltp SYM RET &mtp RSHFT BSPC &ltp FUN DEL
+                                              &ltp NAV ESC &mtp LSHFT SPACE &ltp NUM TAB    &ltp SYM ENTER &mtp RSHFT BSPC &ltp FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
@@ -287,7 +287,7 @@
        &trans        &trans       &trans         &trans        &trans        &trans             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans        &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp PSCRN     &kp LEFT       &kp DOWN      &kp UP       &kp RIGHT      &trans
+       &trans        &trans        &kp LGUI      &kp LALT      &kp LCTRL     &trans            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans       &trans         &trans        &trans        &trans            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
@@ -306,7 +306,7 @@
        &trans        &trans       &trans         &trans        &trans        &trans            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans       &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp STAR       &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans        &trans       &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans        &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
@@ -360,10 +360,10 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bootloader    &sys_reset     &trans        &trans        &trans             &trans        &trans        &trans       &sys_reset   &bootloader     &trans
+       &trans        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG         &trans        &trans      &kp C_BRI_DN  &kp C_BRI_UP    &trans        &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG         &trans       &kp SLEEP    &kp C_BRI_DN  &kp C_BRI_UP   &kp POWER      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
