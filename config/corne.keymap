@@ -256,10 +256,8 @@
             key-positions = <20 39>;
             bindings = <&ltp SYS &trans>;
        };
-
-
-
     };
+};
 
    keymap {
          compatible = "zmk,keymap";
