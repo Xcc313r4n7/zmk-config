@@ -62,14 +62,14 @@
             display-name = "LAYERTAP";
        };
 
-        mtp: modtap {
+        htp: holdtap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <175>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            display-name = "MODTAP";
+            display-name = "HOLDTAP";
        };
 
  /*homerow mods*/
@@ -103,7 +103,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <1500>;
             bindings = <&clr_bt_0>, <&sel_bt_0>;
             display-name = "BLUETOOTH_0_CLEAR";
        };
@@ -112,7 +112,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <1500>;
             bindings = <&clr_bt_1>, <&sel_bt_1>;
             display-name = "BLUETOOTH_1_CLEAR";
        };
@@ -121,7 +121,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <1500>;
             bindings = <&clr_bt_2>, <&sel_bt_2>;
             display-name = "BLUETOOTH_2_CLEAR";
        };
@@ -130,7 +130,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <1500>;
             bindings = <&clr_bt_3>, <&sel_bt_3>;
             display-name = "BLUETOOTH_3_CLEAR";
        };
@@ -139,7 +139,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <1500>;
             bindings = <&clr_bt_4>, <&sel_bt_4>;
             display-name = "BLUETOOTH_4_CLEAR";
        };
@@ -153,45 +153,35 @@
             display-name = "ZM_sel_bt_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 0>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 0>;
         };
 
         sel_bt_1: sel_bt_1 {
             display-name = "ZM_sel_bt_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 1>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 1>;
         };
 
         sel_bt_2: sel_bt_2 {
             display-name = "ZM_sel_bt_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 2>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 2>;
         };
 
         sel_bt_3: sel_bt_3 {
             display-name = "ZM_sel_bt_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 3>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 3>;
         };
 
         sel_bt_4: sel_bt_4 {
             display-name = "ZM_sel_bt_4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 4>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 4>;
         };
 
 /*bluetooth clear macros*/
@@ -200,50 +190,40 @@
             display-name = "ZM_clr_bt_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 0>
-                , <&macro_tap &bt BT_CLR>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 0>,
+                       <&macro_tap &bt BT_CLR>;
         };
 
         clr_bt_1: clr_bt_1 {
             display-name = "ZM_clr_bt_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 1>
-                , <&macro_tap &bt BT_CLR>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 1>,
+                       <&macro_tap &bt BT_CLR>;
         };
 
         clr_bt_2: clr_bt_2 {
             display-name = "ZM_clr_bt_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 2>
-                , <&macro_tap &bt BT_CLR>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 2>,
+                       <&macro_tap &bt BT_CLR>;
         };
 
         clr_bt_3: clr_bt_3 {
             display-name = "ZM_clr_bt_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 3>
-                , <&macro_tap &bt BT_CLR>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 3>,
+                       <&macro_tap &bt BT_CLR>;
         };
 
         clr_bt_4: clr_bt_4 {
             display-name = "ZM_clr_bt_4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 4>
-                , <&macro_tap &bt BT_CLR>
-                ;
+            bindings = <&macro_tap &bt BT_SEL 4>,
+                       <&macro_tap &bt BT_CLR>;
         };
 
    conditional_layers {
@@ -268,13 +248,13 @@
      &kp C_VOL_UP     &kp Q         &kp W         &kp F         &kp P         &kp B              &kp J         &kp L         &kp U         &kp Y       &kp APOS      &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
- &mtp C_MIC_MUTE C_MUTE &kp A    &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O   &mtp C_STOP C_PP
+     &kp C_MUTE       &kp A      &hml LGUI R   &hml LALT S   &hml LCTRL T     &kp G              &kp M      &hmr RCTRL N  &hmr RALT E   &hmr RGUI I      &kp O       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN     &kp Z         &kp X         &kp C         &kp D         &kp V              &kp K         &kp H        &cscol         &pcol         &quex       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV ESC &mtp LSHFT SPACE &ltp NUM TAB    &ltp SYM ENTER &mtp RSHFT BSPC &ltp FUN DEL
+                                              &ltp NAV ESC &htp LSHFT SPACE &ltp NUM TAB    &ltp SYM ENTER &htp RSHFT BSPC &ltp FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
