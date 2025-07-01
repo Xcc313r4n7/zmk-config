@@ -274,7 +274,7 @@
      &kp C_VOL_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV ESC.  &htp LSHFT R &ltp NUM ENTER    &ltp SYM BSPC &htp RSHFT SPACE &ltp FUN TAB
+                                              &ltp NAV ESC.  &htp LSHFT R &ltp NUM TAB      &ltp SYM BSPC &htp RSHFT SPACE &ltp FUN ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
@@ -312,7 +312,7 @@
        &trans        &trans        &trans        &trans        &trans        &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &trans       &trans        &trans             &trans        &kp N0         &pcol
+                                                  &trans       &trans        &trans              &pcol        &kp N0       &kp ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
