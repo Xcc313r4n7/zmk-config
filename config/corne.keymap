@@ -113,7 +113,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <175>;
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&sbs>;
             display-name = "LAYERTAP_SBS";
@@ -296,7 +297,7 @@
      &kp C_VOL_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV ESC   &htp LSHFT R &ltp NUM TAB      &ltp SYM ENTER &sbsht RSHFT 0 &ltp FUN DEL
+                                              &ltp NAV ESC   &hml LSHFT R &ltp NUM TAB      &ltp SYM ENTER &sbsht RSHFT 0 &ltp FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
