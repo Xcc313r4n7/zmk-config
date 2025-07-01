@@ -271,7 +271,7 @@
       &kp C_MUTE      &kp S      &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I      &kp H        &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp V         &kp P         &kp L         &kp D         &quex              &kp DEL       &kp U         &kp O         &kp Y         &kp F       &kp C_PREV
+     &kp C_VOL_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                               &ltp NAV ESC.  &htp LSHFT R &ltp NUM ENTER    &ltp SYM BSPC &htp RSHFT SPACE &ltp FUN TAB
