@@ -12,12 +12,12 @@
         reg = <0>;
         width = <160>;
         height = <68>;
-        label = "DISPLAY";
+        label = "NICE_VIEW_GEM";
     };
 };
 
 / {
     chosen {
-        zephyr,display = &nice_view;
+        zephyr,display = &nice_view_gem;
     };
 };
