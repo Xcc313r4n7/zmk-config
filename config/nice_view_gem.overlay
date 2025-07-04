@@ -12,7 +12,7 @@
         reg = <0>;
         width = <160>;
         height = <68>;
-        label = "NICE_VIEW"
+        label = "NICE_VIEW";
     };
 };
 
