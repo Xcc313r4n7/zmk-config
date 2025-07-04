@@ -321,16 +321,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &steno S_L    &steno T_L    &steno P_L    &steno H_L  &steno STAR_L      &steno STAR_R   &steno F_R    &steno P_R    &steno L_R    &steno T_R    &steno D_R
+       &trans      &kp STN_S1    &kp STN_TL     &kp STN_PL    &kp STN_HL   &kp STN_ST1        &kp STN_ST1    &kp STN_FR    &kp STN_PR    &kp STN_LR    &kp STN_TR    &kp STN_DR
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &to BAS      &steno S_L    &steno K_L    &steno W_L    &steno R_L  &steno STAR_L      &steno STAR_R   &steno R_R    &steno B_R    &steno G_R    &steno S_R    &steno Z_R
+       &to BAS     &kp STN_S2    &kp STN_KL    &kp STN_WL    &kp STN_RL    &kp STN_ST2        &kp STN_ST2    &kp STN_RR    &kp STN_BR    &kp STN_GR    &kp STN_SR    &kp STN_ZR
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans          &no           &no           &no           &no           &no                &no           &no           &no           &no           &no           &no
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &steno NUM    &steno A      &steno O            &steno E      &steno U     &steno NUM
+                                               &kp STN_NUM    &kp STN_A     &kp STN_O          &kp STN_E     &kp STN_U    &kp STN_NUM
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
