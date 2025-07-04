@@ -327,7 +327,7 @@
        &to BAS     &kp PLV_SL    &kp PLV_KL    &kp PLV_WL    &kp PLV_RL    &kp PLV_ST         &kp PLV_ST    &kp PLV_RR    &kp PLV_BR    &kp PLV_GR    &kp PLV_SR    &kp PLV_ZR
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans          &no           &no           &no           &no           &no                &no           &no           &no           &no           &no           &no
+       &trans        &kp no        &kp no        &kp no        &kp no        &kp no             &kp no        &kp no        &kp no        &kp no        &kp no    &kp no
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp PLV_NM    &kp PLV_A     &kp PLV_O          &kp PLV_E     &kp PLV_U     &kp PLV_NM
