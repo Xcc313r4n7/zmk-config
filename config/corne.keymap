@@ -14,11 +14,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BAS   0
-#define NAV   1     
-#define NUM   2
-#define SYM   3
-#define FUN   4
-#define SYS   5
+#define STN   1
+#define NAV   2     
+#define NUM   3
+#define SYM   4
+#define FUN   5
+#define SYS   6
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LC(LS(LALT))
 
@@ -52,11 +53,35 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
        };
 
-       sbs: space_backspace {
+        sbs: space_backspace {
             compatible = "zmk,behavior-mod-morph";
             display-name = "SPACE_BACKSPACE";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp BSPC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+
+        mpp: mute_playpause {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "MUTE_PLAYPAUSE";
+            #binding-cells = <0>;
+            bindings = <&kp C_MUTE>, <&kp C_PP>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+
+        vun: volumeup_next {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "VOLUMEUP_NEXT";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+       };
+
+        vdp: volumedown_previous {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "VOLUMEDOWN_PREVIOUS";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_DN>, <&kp C_PREV>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
        };
 
@@ -107,19 +132,6 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 39 40 41>; // List of keys on the left side of the keyboard and all thumb keys
             display-name = "HOMEROW_MODS_RIGHT";
-       };
-
-/*space backspace holdtap*/
-
-        sbsht: layertap_sbs {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&sbs>;
-            display-name = "LAYERTAP_SBS";
        };
 
 /*bluetooth key holdtaps*/
@@ -279,7 +291,7 @@
                 tri_state {
                 if-layers = <NAV FUN>;
                 then-layer = <SYS>;
-       };
+       };      
     };
 };
 
@@ -290,17 +302,36 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp X         &kp W         &kp M         &kp G         &kp Q              &kp Z         &pcol        &kp APOS       &kp J         &kp B       &kp C_NEXT
+     &kp C_BRI_UP     &kp X         &kp W         &kp M         &kp G         &kp Q              &kp Z         &pcol        &kp APOS       &kp J         &kp B         &vun
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE  &hml HYPER S   &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml HYPER H    &kp C_PP
+       &to STN     &hml HYPER S  &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml HYPER H     &mpp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F       &kp C_PREV
+     &kp C_BRI_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV ESC   &hml LSHFT R &ltp NUM TAB      &ltp SYM ENTER &sbsht RSHFT 0 &ltp FUN DEL
+                                              &ltp NAV TAB   &hml LSHFT R &ltp NUM ENTER    &ltp SYM BSPC &hml RSHFT SPACE &ltp FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
+                  >;
+               };
+            stenography_layer {
+                  display-name = "573N0";
+                  bindings = <
+
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans       &steno_S_L    &steno_T_L    &steno_P_L    &steno_H_L  &steno_STAR_L      &steno_STAR_R   &steno_F_R    &steno_P_R    &steno_L_R    &steno_T_R    &steno_D_R
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &to BAS      &steno_S_L    &steno_K_L    &steno_W_L    &steno_R_L  &steno_STAR_L      &steno_STAR_R   &steno_R_R    &steno_B_R    &steno_G_R    &steno_S_R    &steno_Z_R
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans          &no           &no           &no           &no           &no                &no           &no           &no           &no           &no           &no
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                               &steno_NUM    &steno_A      &steno_O            &steno_E      &steno_U     &steno_NUM
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
             navigation_layer {
@@ -356,7 +387,7 @@
        &trans       &kp AMPS       &kp AT       &kp HASH      &kp DLLR      &kp CARET           &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                &kp GRAVE     &kp UNDER     &kp TILDE           &trans        &trans        &trans
+                                                &kp GRAVE      &trans       &kp TILDE           &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
                   >;
                };
@@ -375,7 +406,7 @@
        &trans        &kp F9        &kp F10       &kp F11       &kp F12       &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &trans       &trans        &trans             &trans        &trans        &trans
+                                                 &kp ESC       &trans        &trans             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
