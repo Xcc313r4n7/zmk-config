@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-&nice_view_spi {
+&spi1 {
     status = "okay";
     nice_view: ls0xx@0 {
         compatible = "sharp,ls0xx";
