@@ -321,16 +321,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &steno_S_L    &steno_T_L    &steno_P_L    &steno_H_L  &steno_STAR_L      &steno_STAR_R   &steno_F_R    &steno_P_R    &steno_L_R    &steno_T_R    &steno_D_R
+       &trans       &steno S_L    &steno T_L    &steno P_L    &steno H_L  &steno STAR_L      &steno STAR_R   &steno F_R    &steno P_R    &steno L_R    &steno T_R    &steno D_R
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &to BAS      &steno_S_L    &steno_K_L    &steno_W_L    &steno_R_L  &steno_STAR_L      &steno_STAR_R   &steno_R_R    &steno_B_R    &steno_G_R    &steno_S_R    &steno_Z_R
+       &to BAS      &steno S_L    &steno K_L    &steno W_L    &steno R_L  &steno STAR_L      &steno STAR_R   &steno R_R    &steno B_R    &steno G_R    &steno S_R    &steno Z_R
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans          &no           &no           &no           &no           &no                &no           &no           &no           &no           &no           &no
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &steno_NUM    &steno_A      &steno_O            &steno_E      &steno_U     &steno_NUM
+                                               &steno NUM    &steno A      &steno O            &steno E      &steno U     &steno NUM
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
