@@ -11,7 +11,7 @@ manifest:
   projects:
     - name: zmk
       remote: dnaq #default zmkfirmware
-      revision: plover-machine-hid- #default main
+      revision: plover-hid-hog-attempt #default main
       import: app/west.yml
     - name: nice-view-gem #custom widget for nice view
       remote: m165437 #custom widget for nice view
