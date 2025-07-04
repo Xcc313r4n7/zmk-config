@@ -4,14 +4,14 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: m165437 #custom widget for nice view
       url-base: https://github.com/M165437 #custom widget for nice view
-    - name: dnaq #plover HID
-      url-base: https://github.com/dnaq #plover HID
+#   - name: dnaq #plover HID
+#     url-base: https://github.com/dnaq #plover HID
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: dnaq #default zmkfirmware
-      revision: plover-hid-hog-attempt #default main
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
     - name: nice-view-gem #custom widget for nice view
       remote: m165437 #custom widget for nice view

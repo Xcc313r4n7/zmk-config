@@ -283,6 +283,16 @@
                 ;
         };
 
+        ptog: plover_toggle {
+            display-name = "PLOVER_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings 
+                = <&macro_tap &tog STN>
+                  <&macro_press  &kp E &kp R &kp F &kp V &kp O &kp L>
+                , <&macro_release &kp E &kp R &kp F &kp V &kp O &kp L>;
+  };
+
    conditional_layers {
 
 /*system layer combo*/
@@ -305,7 +315,7 @@
      &kp C_BRI_UP     &kp X         &kp W         &kp M         &kp G         &kp Q              &kp Z         &pcol        &kp APOS       &kp J         &kp B         &vun
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &to STN     &hml HYPER S  &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml HYPER H     &mpp
+        &ptog      &hml HYPER S  &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml HYPER H     &mpp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_BRI_DN     &kp V         &kp P         &kp L         &kp D         &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F         &vdp
@@ -321,16 +331,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &kp PLV_SL    &kp PLV_TL     &kp PLV_PL    &kp PLV_HL   &kp PLV_ST         &kp PLV_ST    &kp PLV_FR    &kp PLV_PR    &kp PLV_LR    &kp PLV_TR    &kp PLV_DR
+       &trans         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &to BAS     &kp PLV_SL    &kp PLV_KL    &kp PLV_WL    &kp PLV_RL    &kp PLV_ST         &kp PLV_ST    &kp PLV_RR    &kp PLV_BR    &kp PLV_GR    &kp PLV_SR    &kp PLV_ZR
+        &ptog         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                &kp PLV_NM    &kp PLV_A     &kp PLV_O          &kp PLV_E     &kp PLV_U     &kp PLV_NM
+                                                  &none         &kp C         &kp V             &kp K          &kp M         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
