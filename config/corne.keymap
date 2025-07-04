@@ -92,7 +92,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
             display-name = "LAYERTAP";
@@ -103,7 +103,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             display-name = "HOLDTAP";
@@ -116,7 +116,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 18 19 20 39 40 41>; // List of keys on the right side of the keyboard and all thumb keys
@@ -127,7 +127,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 39 40 41>; // List of keys on the left side of the keyboard and all thumb keys
@@ -340,7 +340,7 @@
        &trans         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &kp C         &kp V             &kp N          &kp M         &none
+                                                  &kp N0        &kp C         &kp V              &kp N         &kp M        &kp N0
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
