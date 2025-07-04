@@ -289,7 +289,7 @@
             #binding-cells = <0>;
             bindings 
                 = <&macro_tap &tog STN>
-                  <&macro_press  &kp E &kp R &kp F &kp V &kp O &kp L>
+                , <&macro_press  &kp E &kp R &kp F &kp V &kp O &kp L>
                 , <&macro_release &kp E &kp R &kp F &kp V &kp O &kp L>;
   };
 
