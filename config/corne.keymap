@@ -12,7 +12,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "behaviors/hold-tap-auto-off.dtsi"
 
 #define BAS   0
 #define STN   1
@@ -28,22 +27,6 @@
 / {
 
    behaviors {
-
-        llcu: left_layer_cleanup {
-            compatible = "zmk,behavior-hold-tap-auto-off";
-            label = "LEFT_LAYER_CLEANUP";
-            tapping-term-ms = <280>;
-            bindings = <&kp ENTER>, <&mo 2>;            
-            child-layers = <2 3 4>;
-        };
-
-        rlcu: right_layer_cleanup {
-            compatible = "zmk,behavior-hold-tap-auto-off";
-            label = "RIGHT_LAYER_CLEANUP";
-            tapping-term-ms = <280>;
-            bindings = <&kp ENTER>, <&mo 2>;            
-            child-layers = <2 3 4>;
-        };
 
 /*modmorphs*/
 
@@ -109,7 +92,7 @@
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard            
        };
 
-            ltr: layertap_right {
+        ltr: layertap_right {
             compatible = "zmk,behavior-hold-tap";
             display-name = "LAYERTAP_RIGHT";
             #binding-cells = <2>;
@@ -338,7 +321,7 @@
      &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB     &hts LSHFT R     &llcu              &rlcu    &hts RSHFT SPACE  &kp DEL
+                                               &ltl MOU TAB   &ltl NAV R  &ltl NUM ENTER    &ltr SYM BSPC &hts RSHFT SPACE  &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
@@ -373,7 +356,7 @@
        &trans        &kp MEH      &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT          &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none       &mto NUM       &mto MOU      &mto NAV       &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans            &kp ENTER      &kp N0         &pcol
@@ -392,7 +375,7 @@
        &trans        &kp MEH      &kp LGUI       &kp LALT     &kp LCTRL     &kp LSHFT          &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none       &mto NUM       &mto MOU      &mto NAV       &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans            &kp BSPC       &trans        &trans
@@ -411,7 +394,7 @@
        &trans        &kp MEH      &kp LGUI       &kp LALT     &kp LCTRL     &kp LSHFT          &mkp MB4    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none       &mto NUM       &mto MOU      &mto NAV       &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans             &mkp MB1      &mkp MB2     &mkp MB3
@@ -430,7 +413,7 @@
        &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none       &mto FUN       &mto SYS      &mto SYM       &none        &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
@@ -449,7 +432,7 @@
        &trans        &kp F5        &kp F6        &kp F7        &kp F8         &none            &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none       &mto FUN       &mto SYS      &mto SYM       &none        &trans
+       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &kp ESC            &trans         &none         &none
@@ -468,7 +451,7 @@
        &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG        &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none       &mto FUN       &mto SYS      &mto SYM       &none        &trans
+       &trans         &none         &none         &none         &none         &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none         &none             &trans         &none         &none
