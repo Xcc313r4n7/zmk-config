@@ -96,7 +96,7 @@
             require-prior-idle-ms = <125>;
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
-            bindings = <&lkl>, <&kp>;
+            bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard            
        };
 
@@ -108,7 +108,7 @@
             require-prior-idle-ms = <125>;
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
-            bindings = <&lkr>, <&kp>;
+            bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard            
        };
 
@@ -189,30 +189,6 @@
        };
 
    macros {
-
-/*layer macros*/
-
-        lkl: layer_key_left {            
-            compatible = "zmk,behavior-macro";
-            display-name = "LAYER_KEY_LEFT";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &tog NUM>
-                , <&macro_pause_for_release>
-                , <&macro_release &tog NUM>
-                ;
-        };
-
-        lkr: layer_key_right {            
-            compatible = "zmk,behavior-macro";
-            display-name = "LAYER_KEY_RIGHT";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &tog SYM>
-                , <&macro_pause_for_release>
-                , <&macro_release &tog SYM>
-                ;
-        };
 
 /*bluetooth press macros*/
 
@@ -353,7 +329,7 @@
      &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB     &hts LSHFT R  &ltl 0 ENTER       &ltr 0 BSPC &hts RSHFT SPACE  &kp DEL
+                                                 &kp TAB     &hts LSHFT R &ltl NUM ENTER    &ltr SYM BSPC &hts RSHFT SPACE  &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
