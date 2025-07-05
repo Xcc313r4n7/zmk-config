@@ -319,8 +319,20 @@
             #binding-cells = <0>;
             bindings 
                 = <&macro_tap &tog STN>
-                , <&macro_press  &kp E &kp R &kp F &kp V &kp O &kp L>
-                , <&macro_release &kp E &kp R &kp F &kp V &kp O &kp L>;
+                , <&macro_tap &tog STN>
+                , <&macro_press &kp E>
+              , <&macro_press &kp R>
+                 , <&macro_press &kp F>
+                 , <&macro_press &kp V>
+                 , <&macro_press &kp O>
+                 , <&macro_press &kp L>
+                 , <&macro_release &kp E>
+                 , <&macro_release &kp R>
+                 , <&macro_release &kp F>
+                 , <&macro_release &kp V>
+                 , <&macro_release &kp O>
+                 , <&macro_release &kp L>
+                 ;
         };
     };
 
