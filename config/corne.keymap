@@ -199,7 +199,7 @@
             bindings
                 = <&macro_press &tog NUM>
                 , <&macro_pause_for_release>
-                , <&macro_release &to BAS>
+                , <&macro_release &tog NUM>
                 ;
         };
 
@@ -210,7 +210,7 @@
             bindings
                 = <&macro_press &tog SYM>
                 , <&macro_pause_for_release>
-                , <&macro_release &to BAS>
+                , <&macro_release &tog SYM>
                 ;
         };
 
