@@ -10,8 +10,8 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: zmkfirmware #dnaq for plover
+      revision: main #plover-hid-hog-attempt for plover
       import: app/west.yml
     - name: nice-view-gem #custom widget for nice view
       remote: m165437 #custom widget for nice view

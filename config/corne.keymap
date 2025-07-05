@@ -87,26 +87,39 @@
 
 /*quicktap functions*/
 
-        ltp: layertap {
+        ltl: layertap_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
             bindings = <&mo>, <&kp>;
-            display-name = "LAYERTAP";
+            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
+            display-name = "LAYERTAP_LEFT";
        };
 
-        htp: holdtap {
+            ltr: layertap_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
+            display-name = "LAYERTAP_RIGHT";
+       };
+
+        hts: holdtap_shift{
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            display-name = "HOLDTAP";
+            display-name = "HOLDTAP_SHIFT";
        };
 
  /*homerow mods*/
@@ -114,23 +127,25 @@
         hml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 18 19 20 39 40 41>; // List of keys on the right side of the keyboard and all thumb keys
+            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;
             display-name = "HOMEROW_MODS_LEFT";
         };
         hmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 39 40 41>; // List of keys on the left side of the keyboard and all thumb keys
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;
             display-name = "HOMEROW_MODS_RIGHT";
        };
 
@@ -312,16 +327,16 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_UP     &kp X         &kp W         &kp M         &kp G         &kp Q              &kp Z         &pcol        &kp APOS       &kp J         &kp B         &vun
+     &kp C_BRI_UP     &kp V         &kp P         &kp L         &kp D         &kp Q              &kp Z         &kp U         &kp O         &kp Y         &kp F         &vun
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &ptog      &hml HYPER S  &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml HYPER H     &mpp
+        &ptog       &hml MEH S   &hml LGUI C   &hml LALT N   &hml LCTRL T     &kp K             &cscol      &hmr RCTRL A  &hmr RALT E   &hmr RGUI I   &hml MEH H       &mpp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN     &kp V          &kp P         &kp L         &kp D        &quex            &kp MINUS       &kp U         &kp O         &kp Y         &kp F         &vdp
+     &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &ltp NAV TAB   &hml LSHFT R &ltp NUM ENTER    &ltp SYM BSPC &hml RSHFT SPACE &ltp FUN DEL
+                                              &ltl NAV TAB   &hts LSHFT R &ltl NUM ENTER    &ltr SYM BSPC &hts RSHFT SPACE &ltr FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
@@ -331,13 +346,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
+       &trans        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5             &kp N6        &kp N7        &kp N8        &kp N9        &kp N0       &kp MINUS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &ptog         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
+        &ptog         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
+       &trans         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &kp N0        &kp C         &kp V              &kp N         &kp M        &kp N0
@@ -350,13 +365,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans       &trans         &trans        &trans        &trans             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
+       &trans        &trans        &trans        &trans        &trans        &trans             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp HYPER     &kp LGUI       &kp LALT     &kp LCTRL      &trans            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+       &trans        &kp MEH      &kp LGUI       &kp LALT     &kp LCTRL      &trans            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &trans       &trans         &trans        &trans        &trans            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans        &trans        &trans        &trans        &trans        &trans            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &trans        &trans        &trans    
@@ -372,7 +387,7 @@
        &trans        &trans       &trans         &trans        &trans        &trans            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp HYPER     &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans        &kp MEH      &kp LGUI      &kp LALT      &kp LCTRL      &trans            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans        &trans            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
@@ -391,10 +406,10 @@
        &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH            &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE            &trans       &kp RCTRL     &kp RALT      &kp RGUI      &kp HYPER      &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE            &trans       &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp AT       &kp HASH      &kp DLLR      &kp CARET           &trans        &trans        &trans        &trans        &trans        &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET           &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE      &trans       &kp TILDE           &trans        &trans        &trans
@@ -410,13 +425,13 @@
        &trans        &kp F1        &kp F2        &kp F3        &kp F4        &trans             &trans       &trans         &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F5        &kp F6        &kp F7        &kp F8        &trans             &trans       &kp RCTRL     &kp RALT      &kp RGUI      &kp HYPER      &trans
+       &trans        &kp F5        &kp F6        &kp F7        &kp F8        &trans             &trans       &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &kp F9        &kp F10       &kp F11       &kp F12       &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp ESC       &trans        &trans             &trans        &trans        &trans
+                                                 &trans        &trans        &kp ESC            &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -429,13 +444,13 @@
        &trans        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG         &trans        &trans        &trans        &trans        &trans        &trans
+       &trans       &bt3 0 0      &bt2 0 0      &bt1 0 0      &bt0 0 0     &out OUT_TOG       &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &trans       &trans        &trans             &trans        &trans        &trans
+                                                 &trans        &trans        &trans             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
