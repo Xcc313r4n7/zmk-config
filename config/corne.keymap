@@ -197,7 +197,7 @@
             display-name = "LAYER_KEY_LEFT";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &to NUM>
+                = <&macro_press &tog NUM>
                 , <&macro_pause_for_release>
                 , <&macro_release &to BAS>
                 ;
@@ -208,7 +208,7 @@
             display-name = "LAYER_KEY_RIGHT";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &to SYM>
+                = <&macro_press &tog SYM>
                 , <&macro_pause_for_release>
                 , <&macro_release &to BAS>
                 ;
@@ -353,7 +353,7 @@
      &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB     &hts LSHFT R  &lkl       &ltr 0 BSPC &hts RSHFT SPACE  &kp DEL
+                                                 &kp TAB     &hts LSHFT R  &ltl 0 ENTER       &ltr 0 BSPC &hts RSHFT SPACE  &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
