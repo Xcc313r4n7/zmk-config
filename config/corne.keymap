@@ -432,7 +432,7 @@
        &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none        &to FUN       &to SET       &to SYM        &none        &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
@@ -451,7 +451,7 @@
        &trans        &kp F5        &kp F6        &kp F7        &kp F8         &none            &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &to FUN       &to SET       &to SYM        &none        &trans
+       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &kp ESC            &trans         &none         &none
@@ -470,7 +470,7 @@
        &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG        &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none        &to FUN       &to SET       &to SYM        &none        &trans
+       &trans         &none         &none         &none         &none         &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none         &none             &trans         &none         &none
