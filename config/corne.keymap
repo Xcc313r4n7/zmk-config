@@ -340,7 +340,7 @@
      &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB     &hts LSHFT R  &ltl 0 ENTER        ltr 0 BSPC &hts RSHFT SPACE  &kp DEL
+                                                 &kp TAB     &hts LSHFT R  &ltl 0 ENTER       &ltr 0 BSPC &hts RSHFT SPACE  &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
