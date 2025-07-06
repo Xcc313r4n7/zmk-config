@@ -5,11 +5,12 @@
  */
 
 /*defines*/
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
@@ -22,11 +23,32 @@
 #define FUN   6
 #define SYS   7
 #define HYPER LS(LC(LG(LALT)))
-#define MEH   LC(LS(LALT))
+#define MEH   LS(LC(LALT))
+;
 
 / {
 
+/*capsword*/
+
+        caps: capsword {
+            compatible = "zmk,behavior-caps-word";
+            display-name = "CAPSWORD";
+            #binding-cells = <0>;
+            continue-list = <UNDER MINUS BSPC DEL>;
+    }
+
    behaviors {
+
+/*sticky mod keys*/
+
+        sm: sticky_mods {
+            compatible = "zmk,behavior-sticky-key";
+            display-name = "STICKY_MODS";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+            quick-release;
+                        };
 
 /*modmorphs*/
 
@@ -36,7 +58,7 @@
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
+                                };
 
         pcol: period_colon {
             compatible = "zmk,behavior-mod-morph";
@@ -44,7 +66,7 @@
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+                            };
 
         quex: question_exclamation {
             compatible = "zmk,behavior-mod-morph";
@@ -52,7 +74,7 @@
             #binding-cells = <0>;
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
+                                    };
 
         mpp: mute_playpause {
             compatible = "zmk,behavior-mod-morph";
@@ -60,7 +82,7 @@
             #binding-cells = <0>;
             bindings = <&kp C_MUTE>, <&kp C_PP>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
+                            };
 
         vun: volumeup_next {
             compatible = "zmk,behavior-mod-morph";
@@ -68,7 +90,7 @@
             #binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
+                           };
 
         vdp: volumedown_previous {
             compatible = "zmk,behavior-mod-morph";
@@ -76,98 +98,20 @@
             #binding-cells = <0>;
             bindings = <&kp C_VOL_DN>, <&kp C_PREV>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-       };
+                                 };
 
-/*holdtap keys*/
+/*layer holdtap keys*/
 
-        ltl: layertap_left {
+        lht: layer_holdtap {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "LAYERTAP_LEFT";
+            display-name = "LAYER_HOLDTAP";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard            
-       };
-
-        ltr: layertap_right {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "LAYERTAP_RIGHT";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <300>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard            
-       };
-
-        hts: holdtap_shift{
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "HOLDTAP_SHIFT";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;            
-       };
-
- /*holdtap mod keys*/
-
-        hml: holdtap_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "HOLDTAP_MODS_LEFT";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
-            hold-trigger-on-release;            
-        };
-        hmr: holdtap_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "HOLDTAP_MODS_RIGHT";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
-            hold-trigger-on-release;            
-       };
-
-/*holdtap modmorph keys*/
-
-        hmq: holdtap_modmorph_quex {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "HOLDTAP_MODMORPH_QUEX";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&quex>;
-            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
-            hold-trigger-on-release;            
-        };
-        hmp: holdtap_modmorph_pcol {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "HOLDTAP_MODMORPH_PCOL";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&pcol>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
-            hold-trigger-on-release;            
-       };       
+                           };
 
 /*bluetooth holdtap keys*/
 
@@ -177,8 +121,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1500>;
-            bindings = <&clr_bt_0>, <&sel_bt_0>;            
-       };
+            bindings = <&clr_bt_0>, <&sel_bt_0>;
+                               };
 
         bt1: bluetooth_1_clear {
             compatible = "zmk,behavior-hold-tap";
@@ -186,8 +130,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1500>;
-            bindings = <&clr_bt_1>, <&sel_bt_1>;            
-       };
+            bindings = <&clr_bt_1>, <&sel_bt_1>;
+                               };
 
         bt2: bluetooth_2_clear {
             compatible = "zmk,behavior-hold-tap";
@@ -195,8 +139,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1500>;
-            bindings = <&clr_bt_2>, <&sel_bt_2>;            
-       };
+            bindings = <&clr_bt_2>, <&sel_bt_2>;
+                               };
 
         bt3: bluetooth_3_clear {
             compatible = "zmk,behavior-hold-tap";
@@ -204,8 +148,9 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1500>;
-            bindings = <&clr_bt_3>, <&sel_bt_3>;            
-       };
+            bindings = <&clr_bt_3>, <&sel_bt_3>;
+                               };
+             };
 
    macros {
 
@@ -218,7 +163,7 @@
             bindings
                 = <&macro_tap &bt BT_SEL 0>
                 ;
-        };
+                           };
 
         sel_bt_1: sel_bt_1 {            
             compatible = "zmk,behavior-macro";
@@ -227,7 +172,7 @@
             bindings
                 = <&macro_tap &bt BT_SEL 1>
                 ;
-        };
+                           };
 
         sel_bt_2: sel_bt_2 {            
             compatible = "zmk,behavior-macro";
@@ -236,7 +181,7 @@
             bindings
                 = <&macro_tap &bt BT_SEL 2>
                 ;
-        };
+                           };
 
         sel_bt_3: sel_bt_3 {            
             compatible = "zmk,behavior-macro";
@@ -245,7 +190,7 @@
             bindings
                 = <&macro_tap &bt BT_SEL 3>
                 ;
-        };
+                           };
 
         sel_bt_4: sel_bt_4 {            
             compatible = "zmk,behavior-macro";
@@ -254,7 +199,7 @@
             bindings
                 = <&macro_tap &bt BT_SEL 4>
                 ;
-        };
+                           };
 
 /*bluetooth clear macros*/
 
@@ -266,7 +211,7 @@
                 = <&macro_tap &bt BT_SEL 0>
                 , <&macro_tap &bt BT_CLR>
                 ;
-        };
+                           };
 
         clr_bt_1: clr_bt_1 {            
             compatible = "zmk,behavior-macro";
@@ -276,7 +221,7 @@
                 = <&macro_tap &bt BT_SEL 1>
                 , <&macro_tap &bt BT_CLR>
                 ;
-        };
+                           };
 
         clr_bt_2: clr_bt_2 {            
             compatible = "zmk,behavior-macro";
@@ -286,7 +231,7 @@
                 = <&macro_tap &bt BT_SEL 2>
                 , <&macro_tap &bt BT_CLR>
                 ;
-        };
+                           };
 
         clr_bt_3: clr_bt_3 {            
             compatible = "zmk,behavior-macro";
@@ -296,7 +241,7 @@
                 = <&macro_tap &bt BT_SEL 3>
                 , <&macro_tap &bt BT_CLR>
                 ;
-        };
+                           };
 
         clr_bt_4: clr_bt_4 {            
             compatible = "zmk,behavior-macro";
@@ -306,15 +251,16 @@
                 = <&macro_tap &bt BT_SEL 4>
                 , <&macro_tap &bt BT_CLR>
                 ;
-        };
+                           };
 
-        stog: steno_toggle {            
+/*plover toggle macro*/
+
+        ptog: plover_toggle {            
             compatible = "zmk,behavior-macro";
-            display-name = "STENO_TOGGLE";
+            display-name = "PLOVER_TOGGLE";
             #binding-cells = <0>;
             bindings 
-                = <&macro_tap &tog STN>
-                , <&macro_press &kp E>
+                = <&macro_press &kp E>
                 , <&macro_press &kp R>
                 , <&macro_press &kp F>
                 , <&macro_press &kp V>
@@ -327,24 +273,8 @@
                 , <&macro_release &kp O>
                 , <&macro_release &kp L>
                 ;
-            };
-
-            conditional_layers {
-        compatible = "zmk,conditional-layers";
-                mouse_layer {
-                if-layers = <NUM NAV>;
-                then-layer = <MOU>;
-                    };
-
-                system_layer {
-                if-layers = <SYM FUN>;
-                then-layer = <SYS>;
-                    };
-                };
-    };
-};
-
-
+                           };
+           };
 
    keymap {
          compatible = "zmk,keymap";
@@ -353,151 +283,151 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_UP     &kp V         &kp P         &kp L         &kp D         &kp Q              &kp Z         &kp U         &kp O         &kp Y         &kp F         &vun
+     &kp C_VOL_UP     &kp V         &kp P         &kp L         &kp D         &kp Q              &kp Z         &kp U         &kp O         &kp Y         &kp F      &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &stog         &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H         &mpp
+     &kp C_MUTE       &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN  &hml LSHFT X  &hml LGUI W   &hml LALT M   &hml LCTRL G   &hmq MEH 0      &hmr MEH MINUS  &hmp RCTRL 0 &hmr RALT APOS &hmr RGUI J   &hmr RSHFT B     &vdp
+     &kp C_VOL_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                             &ltl NAV TAB &ltl NUM ENTER   &hts LSHFT R    &hts RSHFT SPACE &ltr SYM BSPC &ltr FUN DEL
+                                               &lht NUM TAB  &lht NAV R   &lht MOU ENTER     &lht FUN BSPC &lht SYM SPACE &lht SYS DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
-                  >;
-               };
+                             >;
+                       };
             stenography_layer {
                   display-name = "573N0";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5             &kp N6        &kp N7        &kp N8        &kp N9        &kp N0       &kp MINUS
+        &none         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
+        &ptog         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
+        &none         &none         &none         &none         &none        &to BAS             &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &kp N0        &kp C         &kp V              &kp N         &kp M        &kp N0
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
+                             >;
+                              };
             number_layer {
                   display-name = "N#M83R5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
+       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)          &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)          &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans            &kp ENTER      &kp N0         &pcol
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
+                             >;
+                        };
             navigation_layer {
                   display-name = "N4V";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
+       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)           &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)            &none   &kp RC(LEFT) &kp RS(RC(LEFT)) &kp RS(RC(LEFT)) &kp RC(RIGHT) &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &trans        &trans        &trans
+                                                 &trans        &trans        &trans           &kp RC(BSPC)    &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
+                             >;
+                            };
             mouse_layer {
                   display-name = "M0U";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &mkp MB5   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
+       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)            &none    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &mkp MB4    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps              &none     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)            &none       &mkp MB4     &kp C_BRI_DN  &kp C_BRI_UP   &mkp MB5       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
+                             >;
+                        };
             symbol_layer {
                   display-name = "5YM80L5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
+       &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH           &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &none         &none         &none         &none        &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET           &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET          &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                &kp GRAVE     &kp TILDE     &kp EQUAL           &trans        &trans        &trans
+                                                &kp GRAVE     &kp TILDE      &kp ESC            &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
-                  >;
-               };
+                             >;
+                        };
             function_layer {
                   display-name = "FUNC710N";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F1        &kp F2        &kp F3        &kp F4         &none              &none         &none         &none         &none         &none        &trans
+       &trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F5        &kp F6        &kp F7        &kp F8         &none              &none         &none         &none         &none         &none        &trans
+       &trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10             &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none             &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
+       &trans        &kp F11       &kp F12       &kp F13       &kp F14       &kp F15           &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &kp ESC            &trans        &trans        &trans
+                                                 &kp F16       &kp F17       &kp F18            &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
+                             >;
+                           };
             system_layer {
                   display-name = "5Y573M";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none        &trans
+       &trans         &none         &none         &none         &none         &none            &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &none         &none         &none         &none         &none        &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none             &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
+       &trans         &none         &none         &none         &none        &to STN            &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none         &none             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                  >;
-               };
-         };
-   };
+                            >;
+                          };   
+          };
+  };
