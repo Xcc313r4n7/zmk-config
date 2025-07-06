@@ -34,7 +34,7 @@
             display-name = "CAPSWORD";
             #binding-cells = <0>;
             continue-list = <UNDER MINUS BSPC DEL>;
-    }
+    };
 
    behaviors {
 
