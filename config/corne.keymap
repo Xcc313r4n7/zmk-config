@@ -75,30 +75,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                     };
 
-        mpp: mute_playpause {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "MUTE_PLAYPAUSE";
-            #binding-cells = <0>;
-            bindings = <&kp C_MUTE>, <&kp C_PP>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                            };
-
-        vun: volumeup_next {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "VOLUMEUP_NEXT";
-            #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                           };
-
-        vdp: volumedown_previous {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "VOLUMEDOWN_PREVIOUS";
-            #binding-cells = <0>;
-            bindings = <&kp C_VOL_DN>, <&kp C_PREV>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                                 };
-
 /*layer holdtap keys*/
 
         lht: layer_holdtap {
