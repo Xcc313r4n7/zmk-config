@@ -314,7 +314,6 @@
             #binding-cells = <0>;
             bindings 
                 = <&macro_tap &tog STN>
-                , <&macro_tap &tog STN>
                 , <&macro_press &kp E>
                 , <&macro_press &kp R>
                 , <&macro_press &kp F>
