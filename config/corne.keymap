@@ -24,7 +24,6 @@
 #define SYS   7
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
-;
 
 / {
 
