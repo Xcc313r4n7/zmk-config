@@ -117,9 +117,9 @@
 
  /*homerow mod keys*/
 
-        hml: homerow_mods_left {
+        hml: holdtap_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "HOMEROW_MODS_LEFT";
+            display-name = "HOLDTAP_MODS_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
@@ -129,9 +129,9 @@
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;            
         };
-        hmr: homerow_mods_right {
+        hmr: holdtap_mods_right {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "HOMEROW_MODS_RIGHT";
+            display-name = "HOLDTAP_MODS_RIGHT";
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
@@ -302,8 +302,23 @@
                 , <&macro_release &kp L>
                 ;
             };
-        };
+
+            conditional_layers {
+        compatible = "zmk,conditional-layers";
+                mouse_layer {
+                if-layers = <NUM NAV>;
+                then-layer = <MOU>;
+                    };
+
+                system_layer {
+                if-layers = <SYM FUN>;
+                then-layer = <SYS>;
+                    };
+                };
     };
+};
+
+
 
    keymap {
          compatible = "zmk,keymap";
@@ -318,10 +333,10 @@
         &stog         &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H         &mpp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B         &vdp
+     &kp C_BRI_DN  &hml LSHFT X  &hml LGUI W   &hml LALT M   &hml LCTRL G  &hml MEH quex   &hmr MEH MINUS &hmr RCTRL pcol &hmr RALT APOS &hmr RGUI J  &hmr RSHFT B     &vdp
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &ltl MOU TAB   &ltl NAV R  &ltl NUM ENTER    &ltr SYM BSPC &hts RSHFT SPACE  &kp DEL
+                                             &ltl NAV TAB &ltl NUM ENTER   &hts LSHFT R    &hts RSHFT SPACE &ltr SYM BSPC &ltr FUN DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                   >;
                };
@@ -350,16 +365,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none        &none          &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
+       &trans         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp MEH      &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT          &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans         &none         &none         &none         &none         &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &trans            &kp ENTER      &kp N0         &pcol
+                                                 &trans        &trans        &trans            &kp ENTER      &kp N0         &pcol
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -372,13 +387,13 @@
        &trans         &none         &none         &none         &none         &none             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp MEH      &kp LGUI       &kp LALT     &kp LCTRL     &kp LSHFT          &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+       &trans         &none         &none         &none         &none         &none            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &trans            &kp BSPC       &trans        &trans
+                                                 &trans        &trans        &trans             &trans         &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -391,13 +406,13 @@
        &trans         &none         &none         &none         &none         &none            &mkp MB5   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp MEH      &kp LGUI       &kp LALT     &kp LCTRL     &kp LSHFT          &mkp MB4    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
+       &trans         &none         &none         &none         &none         &none            &mkp MB4    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none        &to NUM       &to MOU       &to NAV        &none            &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
+       &trans       &kp LSHFT     &kp LGUI       &kp LALT     &kp LCTRL      &kp MEH           &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &trans             &mkp MB1      &mkp MB2     &mkp MB3
+                                                 &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -410,13 +425,13 @@
        &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none        &to FUN       &to SYS       &to SYM        &none        &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET           &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
+                                                &kp GRAVE     &kp TILDE     &kp EQUAL           &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
                   >;
                };
@@ -429,13 +444,13 @@
        &trans        &kp F1        &kp F2        &kp F3        &kp F4         &none              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F5        &kp F6        &kp F7        &kp F8         &none            &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
+       &trans        &kp F5        &kp F6        &kp F7        &kp F8         &none              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
+       &trans        &kp F9        &kp F10       &kp F11       &kp F12        &none             &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &kp ESC            &trans         &none         &none
+                                                  &none         &none        &kp ESC            &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
@@ -448,13 +463,13 @@
        &trans         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG        &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI       &kp MEH       &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none        &to FUN       &to SYS       &to SYM        &none        &trans
+       &trans         &none         &none         &none         &none         &none             &kp MEH      &kp RCTRL     &kp RALT      &kp RGUI      &kp RSHFT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none         &none             &trans         &none         &none
+                                                  &none         &none         &none             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                   >;
                };
