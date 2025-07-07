@@ -40,7 +40,7 @@
 
 /*shift capsword tapdance*/
 
-scw: shift_capsword {
+        scw: shift_capsword {
             compatible = "zmk,behavior-tap-dance";
             display-name = "SHIFT_CAPSWORD";
             #binding-cells = <0>;
@@ -50,7 +50,7 @@ scw: shift_capsword {
 
 /*cut-copy-paste tapdance*/
 
-ccp: cut_copy_paste {
+        ccp: cut_copy_paste {
             compatible = "zmk,behavior-tap-dance";
             display-name = "CUT_COPY_PASTE";
             #binding-cells = <0>;
@@ -60,7 +60,7 @@ ccp: cut_copy_paste {
 
 /*undo-redo tapdance*/
 
-unre: undo_redo {
+        unre: undo_redo {
             compatible = "zmk,behavior-tap-dance";
             display-name = "UNDO_REDO";
             #binding-cells = <0>;
@@ -107,7 +107,7 @@ unre: undo_redo {
 
 /*cut-paste holdtap keys*/
 
-        cut_paste: layer_holdtap {
+        cut_paste: cut_paste_holdtap {
             compatible = "zmk,behavior-hold-tap";
             display-name = "CUT_PASTE_HOLDTAP";
             #binding-cells = <2>;
