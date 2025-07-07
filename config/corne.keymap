@@ -38,14 +38,44 @@
 
    behaviors {
 
-/*sticky mod keys*/
+/*shift capsword tapdance*/
 
-        sm: sticky_mods {
+scw: shift_capsword {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "SHIFT_CAPSWORD";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LSHIFT>, <&caps>;
+        };
+
+/*cut-copy-paste tapdance*/
+
+ccp: cut_copy_paste {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "CUT_COPY_PASTE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&cut_paste LC(X) LC(V)>, <&kp LC(C)>;
+        }; 
+
+/*undo-redo tapdance*/
+
+unre: undo_redo {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "UNDO_REDO";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
+        }; 
+
+/*sticky keys*/
+
+        sk: sticky_keys {
             compatible = "zmk,behavior-sticky-key";
-            display-name = "STICKY_MODS";
+            display-name = "STICKY_KEYS";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <1000>;
+            release-after-ms = <1500>;
             quick-release;
                         };
 
@@ -74,6 +104,19 @@
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                     };
+
+/*cut-paste holdtap keys*/
+
+        cut_paste: layer_holdtap {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "CUT_PASTE_HOLDTAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            bindings = <&kp>, <&kp>;
+                           };
 
 /*layer holdtap keys*/
 
@@ -235,7 +278,8 @@
             display-name = "PLOVER_TOGGLE";
             #binding-cells = <0>;
             bindings 
-                = <&macro_press &kp E>
+                = <&macro_press &tog STN>
+                , <&macro_press &kp E>
                 , <&macro_press &kp R>
                 , <&macro_press &kp F>
                 , <&macro_press &kp V>
@@ -267,7 +311,7 @@
      &kp C_VOL_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht NUM TAB  &lht NAV R   &lht MOU ENTER     &lht FUN BSPC &lht SYM SPACE &lht SYS DEL
+                                               &lht NAV TAB  &lht NUM R   &lht MOU ENTER     &lht FUN BSPC &lht SYM SPACE &lht SYS DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
@@ -280,10 +324,10 @@
         &none         &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp LBKT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &ptog         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
+        &none         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none         &none        &to BAS             &none         &none         &none         &none         &none         &none
+        &none         &none         &none         &none         &none         &ptog              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &kp N0        &kp C         &kp V              &kp N         &kp M        &kp N0
@@ -296,13 +340,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)          &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
+       &trans         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL       &scw          &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)          &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans            &kp ENTER      &kp N0         &pcol
@@ -315,16 +359,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)           &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
+       &trans         &none         &none         &none         &none         &none             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL       &scw          &none            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)            &none   &kp RC(LEFT) &kp RS(RC(LEFT)) &kp RS(RC(LEFT)) &kp RC(RIGHT) &trans        &trans
+       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none   &kp RC(LEFT) &kp RS(RC(LEFT)) &kp RS(RC(LEFT)) &kp RC(RIGHT) &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans           &kp RC(BSPC)    &trans        &trans
+                                                 &trans        &trans        &trans           &kp LC(BSPC)    &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                             };
@@ -334,13 +378,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans   &kp LS(LA(TAB)) &kp LS(LC(TAB)) &kp LC(TAB)   &kp LA(TAB)   &kp LC(A)            &none    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
+       &trans         &none         &none         &none         &none         &none              &none    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sk LGUI       &sk LALT     &sk LCTRL     &sk LSHFT       &caps              &none     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
+       &trans       &sk LGUI       &sk LALT     &sk LCTRL       &scw          &none              &none     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)            &none       &mkp MB4     &kp C_BRI_DN  &kp C_BRI_UP   &mkp MB5       &trans
+       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none       &mkp MB4   &kp LS(LC(TAB)) &kp LC(TAB)    &mkp MB5       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3
@@ -353,17 +397,17 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH           &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
+       &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
+       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &scw        &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET          &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
+       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp TILDE      &kp ESC            &trans        &trans        &trans
-//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
+/                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
                              >;
                         };
             function_layer {
@@ -372,13 +416,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
+       &trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10             &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
+       &trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10             &none         &scw        &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F11       &kp F12       &kp F13       &kp F14       &kp F15           &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
+       &trans        &kp F11       &kp F12       &kp F13       &kp F14       &kp F15             &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp F16       &kp F17       &kp F18            &trans        &trans        &trans
@@ -391,13 +435,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp RC(A) &kp RS(RA(TAB)) &kp RS(RC(TAB)) &kp RC(TAB)   &kp RA(TAB)    &trans
+       &trans         &none     &kp C_BRI_DN   &kp C_BRI_UP     &none         &none              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &caps       &sk RSHFT     &sk RCTRL      &sk RALT     &sk RGUI       &trans
+       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &none         &scw        &sk RCTRL      &sk RALT     &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none        &to STN            &kp RC(Y)     &kp RC(V)     &kp RC(C)     &kp RC(X)     &kp RC(Z)      &trans
+       &trans         &none         &none         &none         &none         &ptog              &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans        &trans        &trans             &trans        &trans        &trans
