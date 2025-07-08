@@ -293,6 +293,20 @@
                 , <&macro_release &kp L>
                 ;
                            };
+
+/*backspace word macro*/
+
+        bsword: backspace_word {            
+            compatible = "zmk,behavior-macro";
+            display-name = "BACKSPACE_WORD";
+            #binding-cells = <0>;
+            bindings 
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp BSPC>
+                , <&macro_release &kp LCTRL>
+                ;
+                           };
+
            };
 
    keymap {
@@ -365,10 +379,10 @@
        &trans       &sm LGUI       &sm LALT     &sm LCTRL       &scw          &none            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none   &kp RC(LEFT) &kp RS(RC(LEFT)) &kp RS(RC(LEFT)) &kp RC(RIGHT) &trans        &trans
+       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none  &kp RS(RC(LEFT)) &kp RC(LEFT) &kp RC(RIGHT) &kp RS(RC(RIGHT)) &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans           &kp LC(BSPC)    &trans        &trans
+                                                 &trans        &trans        &trans             &bsword       &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                             };
