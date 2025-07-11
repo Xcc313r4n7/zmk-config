@@ -294,19 +294,6 @@
                 ;
                            };
 
-/*backspace word macro*/
-
-        bsword: backspace_word {            
-            compatible = "zmk,behavior-macro";
-            display-name = "BACKSPACE_WORD";
-            #binding-cells = <0>;
-            bindings 
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp BSPC>
-                , <&macro_release &kp LCTRL>
-                ;
-                           };
-
            };
 
    keymap {
@@ -382,7 +369,7 @@
        &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none  &kp RS(RC(LEFT)) &kp RC(LEFT) &kp RC(RIGHT) &kp RS(RC(RIGHT)) &trans        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &bsword       &trans        &trans
+                                                 &trans        &trans        &trans             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                             };
@@ -411,16 +398,16 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
+       &kp ESC       &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
+      &kp GRAVE      &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
+      &kp TILDE     &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                &kp GRAVE     &kp TILDE      &kp ESC            &trans        &trans        &trans
+                                                 &trans        &trans        &trans             &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
                              >;
                         };
@@ -430,20 +417,20 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5              &none         &none         &none         &none         &none        &trans
+       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6              &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
+       &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp F11       &kp F12       &kp F13       &kp F14       &kp F15             &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
+       &kp F13       &kp F14       &kp F15       &kp F16       &kp F17       &kp F18             &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp F16       &kp F17       &kp F18            &trans        &trans        &trans
+                                                 &kp F19       &kp F20       &kp F21            &trans        &trans        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                            };
-            system_layer {
+            system_layer {t
                   display-name = "5Y573M";
                   bindings = <
 
