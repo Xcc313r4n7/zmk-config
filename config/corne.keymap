@@ -16,12 +16,10 @@
 
 #define BAS   0
 #define STN   1
-#define NUM   2
-#define NAV   3
-#define MOU   4     
-#define SYM   5
-#define FUN   6
-#define SYS   7
+#define FUN   2     
+#define SNUM  3
+#define NAV   4
+#define SYS   5
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -33,20 +31,10 @@
             compatible = "zmk,behavior-caps-word";
             display-name = "CAPSWORD";
             #binding-cells = <0>;
-            continue-list = <UNDER MINUS BSPC DEL>;
+            continue-list = <UNDER MINUS BSPC DEL LEFT DOWN UP RIGHT>;
     };
 
    behaviors {
-
-/*shift capsword tapdance*/
-
-        scw: shift_capsword {
-            compatible = "zmk,behavior-tap-dance";
-            display-name = "SHIFT_CAPSWORD";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sm LSHIFT>, <&caps>;
-        };
 
 /*cut-copy-paste tapdance*/
 
@@ -130,6 +118,61 @@
             quick-tap-ms = <300>;
             bindings = <&mo>, <&kp>;
                            };
+
+/*shift holdtap key*/
+
+        hts: holdtap_shift{
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "HOLDTAP_SHIFT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;            
+                          };
+
+/*holdtap mod keys*/
+
+        hml: holdtap_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "HOLDTAP_MODS_LEFT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;            
+                               };
+        hmr: holdtap_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "HOLDTAP_MODS_RIGHT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;            
+                                };
+
+/*holdtap modmorph key*/
+
+        hmp: holdtap_modmorph_pcol {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "HOLDTAP_MODMORPH_PCOL";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&pcol>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;            
+                                  };
 
 /*bluetooth holdtap keys*/
 
@@ -309,10 +352,10 @@
      &kp C_MUTE       &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp X         &kp W         &kp M         &kp G         &quex            &kp MINUS       &pcol        &kp APOS       &kp J         &kp B       &kp C_PREV
+     &kp C_VOL_DN  &hml LGUI X   &hml LALT W   &hml LCTRL M  &hml LSHFT G     &quex            &kp MINUS    &hmp RSHFT 0 &hmr RCTRL APOS &hmr RALT J  &hml RGUI B   &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht NAV TAB  &lht NUM R   &lht MOU ENTER     &lht FUN BSPC &lht SYM SPACE &lht SYS DEL
+                                               &lht FUN TAB  &hts LSHFT R &lht SNUM ENTER    &lht NAV BSPC &hts RSHFT SPACE &lht SYS DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
@@ -328,29 +371,48 @@
         &none         &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L       &kp SEMI      &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none         &none         &ptog              &none         &none         &none         &none         &none         &none
+        &none         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &kp C         &kp V              &kp N         &kp M         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                               };
-            number_layer {
-                  display-name = "N#M83R5";
+            function_layer {
+                  display-name = "FUNC710N";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS      &trans
+        &none        &kp F1        &kp F2        &kp F3        &kp F4         &none              &none        &kp F13       &kp F14       &kp F15       &kp F16        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sm LGUI       &sm LALT     &sm LCTRL       &scw          &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS       &trans
+        &none        &kp F5        &kp F6        &kp F7        &kp F8         &none              &none        &kp F17       &kp F18       &kp F19       &kp F20        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL      &trans
+        &none        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &kp F21       &kp F22       &kp F23       &kp F24        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans            &kp ENTER      &kp N0         &pcol
+                                                 &trans         &none         &none              &none         &none         &none
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                             >;
+                           };
+            symbol_number_layer {
+                  display-name = "5YM & N#M";
+                  bindings = <
+
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &kp ESC       &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH           &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+      &kp GRAVE      &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE           &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+      &kp TILDE     &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET          &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                  &none         &none        &trans            &kp ENTER      &kp N0         &pcol
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                         };
@@ -360,92 +422,35 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none             &kp INS      &kp HOME      &kp PG_DN     &kp PG_UP      &kp END       &trans
+      &mkp MB4   &msc SCRL_LEFT &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_RIGHT  &mkp MB5          &kp INS       &kp HOME      &kp PG_DN     &kp PG_UP      &kp END      &kp PSCRN
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sm LGUI       &sm LALT     &sm LCTRL       &scw          &none            &kp PSCRN     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+   &kp LS(LC(TAB)) &mmv MOVE_LEFT &mmv MOVE_UP &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp LC(TAB)      &kp LC(A)     &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT     &kp LC(F)
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none  &kp RS(RC(LEFT)) &kp RC(LEFT) &kp RC(RIGHT) &kp RS(RC(RIGHT)) &trans        &trans
+        &unre       &sm LGUI       &sm LALT     &sm LCTRL     &sm LSHFT       &ccp               &caps       &sm RSHFT     &sm RCTRL     &sm RALT      &sm RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &trans        &trans        &trans
-//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                             >;
-                            };
-            mouse_layer {
-                  display-name = "M0U";
-                  bindings = <
-
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT  &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sm LGUI       &sm LALT     &sm LCTRL       &scw          &none              &none     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LC(F)     &kp LC(A)       &unre         &ccp          &none              &none       &mkp MB4   &kp LS(LC(TAB)) &kp LC(TAB)    &mkp MB5       &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &mkp MB1      &mkp MB2     &mkp MB3
+                                                 &mkp MB3      &mkp MB1     &mkp MB2            &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                         };
-            symbol_layer {
-                  display-name = "5YM80L5";
-                  bindings = <
-
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp ESC       &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp GRAVE      &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp PIPE             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp TILDE     &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET            &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &trans        &trans        &trans
-//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                
-                             >;
-                        };
-            function_layer {
-                  display-name = "FUNC710N";
-                  bindings = <
-
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6              &none         &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12             &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp F13       &kp F14       &kp F15       &kp F16       &kp F17       &kp F18             &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||  ||             |             |             |
-                                                 &kp F19       &kp F20       &kp F21            &trans        &trans        &trans
-//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                             >;
-                           };
             system_layer {
                   display-name = "5Y573M";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none     &kp C_BRI_DN   &kp C_BRI_UP     &none         &none              &none         &none         &none         &none         &none        &trans
+        &none         &none     &kp C_BRI_DN   &kp C_BRI_UP     &none         &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &none         &scw        &sm RCTRL      &sm RALT     &sm RGUI       &trans
+        &none       &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0     &out OUT_TOG          &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &ptog              &none         &ccp          &unre       &kp LC(A)     &kp LC(F)      &trans
+        &none         &none         &none         &none         &none         &ptog              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans        &trans        &trans             &trans        &trans        &trans
+                                                  &none         &none         &none              &none         &none        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                             >;
                           };   
