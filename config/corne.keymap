@@ -63,7 +63,7 @@
             display-name = "STICKY_MODS";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <1500>;
+            release-after-ms = <2000>;
             quick-release;
                         };
 
