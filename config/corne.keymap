@@ -390,10 +390,10 @@
      &kp C_BRI_UP     &none         &none         &none         &none         &none           &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp ESC      &sk LGUI      &sk LALT      &sk LCTRL       &scw          &none              &none         &scw        &sk RCTRL     &sk RALT      &sk RGUI        &none
+       &kp ESC      &sm LGUI      &sm LALT      &sm LCTRL       &scw          &none              &none         &scw        &sm RCTRL     &sm RALT      &sm RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN     &none         &none        &sk MEH      &sk HYPER       &none              &none       &sk HYPER      &sk MEH        &none         &none         &none
+     &kp C_BRI_DN     &none         &none        &sm MEH      &sm HYPER       &none              &none       &sm HYPER      &sm MEH        &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none         &none              &none         &none        &trans
