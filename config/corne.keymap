@@ -76,7 +76,7 @@
             display-name = "CUT_COPY_PASTE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&cut_paste LC(X) LC(V)>, <&kp LC(C)>;
+            bindings = <&paste_cut LC(V) LC(X)>, <&kp LC(C)>;
                             }; 
 
 /*undo-redo tapdance*/
@@ -117,9 +117,9 @@
 
 /*cut-paste holdtap keys*/
 
-        cut_paste: cut_paste_holdtap {
+        paste_cut: paste_cut_holdtap {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "CUT_PASTE_HOLDTAP";
+            display-name = "PASTE_CUT_HOLDTAP";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             require-prior-idle-ms = <125>;
