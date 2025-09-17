@@ -69,6 +69,26 @@
             bindings = <&ss LSHIFT>, <&caps>;
         };
 
+/*cut-copy-paste tapdance*/
+
+        ccp: cut_copy_paste {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "CUT_COPY_PASTE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&cut_paste LC(X) LC(V)>, <&kp LC(C)>;
+                            }; 
+
+/*undo-redo tapdance*/
+
+        unre: undo_redo {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "UNDO_REDO";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
+                        };
+
 /*modmorphs*/
 
         cscol: comma_semicolon {
@@ -94,6 +114,19 @@
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                    };
+
+/*cut-paste holdtap keys*/
+
+        cut_paste: cut_paste_holdtap {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "CUT_PASTE_HOLDTAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            bindings = <&kp>, <&kp>;
+                                     };
 
 /*shift holdtap key*/
 
@@ -338,7 +371,7 @@
         &none    &msc SCRL_LEFT &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_RIGHT   &none              &none       &kp HOME      &kp PG_DN     &kp PG_UP      &kp END        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none    &mmv MOVE_LEFT &mmv MOVE_UP &mmv MOVE_DOWN &mmv MOVE_RIGHT   &none              &none       &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT       &none
+        &unre    &mmv MOVE_LEFT &mmv MOVE_UP &mmv MOVE_DOWN &mmv MOVE_RIGHT   &ccp               &ccp        &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT       &unre
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none    &kp LS(LC(TAB))   &mkp MB4      &mkp MB5    &kp LC(TAB)      &none              &none       &kp PSCRN      &kp INS   &kp PAUSE_BREAK   &kp SLCK       &none
