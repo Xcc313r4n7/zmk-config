@@ -14,11 +14,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BAS  0
-#define FUN  1     
+#define BASE 0
+#define FUNC 1     
 #define SYM  2
 #define NAV  3
-#define MOD  4
+#define GAME 4
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -66,28 +66,8 @@
             display-name = "SHIFT_CAPSWORD";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ss LSHIFT>, <&caps>;
+            bindings = <&ss LSFT>, <&caps>;
         };
-
-/*cut-copy-paste tapdance*/
-
-        ccp: cut_copy_paste {
-            compatible = "zmk,behavior-tap-dance";
-            display-name = "CUT_COPY_PASTE";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&paste_cut LC(V) LC(X)>, <&kp LC(C)>;
-                            }; 
-
-/*undo-redo tapdance*/
-
-        unre: undo_redo {
-            compatible = "zmk,behavior-tap-dance";
-            display-name = "UNDO_REDO";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
-                        };
 
 /*modmorphs*/
 
@@ -114,19 +94,6 @@
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                    };
-
-/*cut-paste holdtap keys*/
-
-        paste_cut: paste_cut_holdtap {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "PASTE_CUT_HOLDTAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <300>;
-            bindings = <&kp>, <&kp>;
-                                     };
 
 /*shift holdtap key*/
 
@@ -308,20 +275,20 @@
    keymap {
          compatible = "zmk,keymap";
             default_layer {
-                  display-name = "P1X3LD";
+                  display-name = "B453";
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp X         &kp P         &kp L         &kp D         &kp Q              &kp Z         &kp U         &kp O         &kp Y         &kp B      &kp C_NEXT
+    &kp C_VOL_UP      &kp X         &kp P         &kp L         &kp D         &kp Q              &kp Z         &kp U         &kp O         &kp Y         &kp B       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_MUTE       &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H       &kp C_PP
+     &kp C_MUTE       &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H        &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp V         &kp W         &kp M         &kp G         &kp J            &kp MINUS       &pcol        &kp APOS       &quex         &kp F      &kp C_PREV
+     &kp C_VOL_DN     &kp V         &kp W         &kp M         &kp G         &kp J            &kp MINUS       &pcol        &kp APOS       &quex         &kp F       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|__-__________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht FUN TAB  &sht LSFT R  &lht SYM ENTER    &lht NAV BSPC &sht RSFT SPACE &lht MOD DEL
+                                              &lht FUNC ESC  &sht LSFT R  &lht SYM BSPC     &lht NAV ENTER &sht RSFT SPACE &tog GAME
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                               };
@@ -368,35 +335,35 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none    &msc SCRL_LEFT &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_RIGHT   &none              &none       &kp HOME      &kp PG_DN     &kp PG_UP      &kp END        &none
+     &kp C_BRI_UP   &kp HOME      &kp PG_UP     &kp PG_DN      &kp END        &none          &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &unre    &mmv MOVE_LEFT &mmv MOVE_UP &mmv MOVE_DOWN &mmv MOVE_RIGHT   &ccp               &ccp        &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT       &unre
+      &kp TAB       &kp LEFT       &kp UP       &kp DOWN      &kp RIGHT       &none              &none       &sm RCTRL     &sm RALT      &sm RGUI       &sm MEH        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none    &kp LS(LC(TAB))   &mkp MB4      &mkp MB5    &kp LC(TAB)      &none              &none       &kp PSCRN      &kp INS   &kp PAUSE_BREAK   &kp SLCK       &none
+     &kp C_BRI_DN    &kp SLCK  &kp PAUSE_BREAK   &kp INS      &kp PSCRN       &none            &kp LC(A)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)     &kp LC(Y)
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &mkp MB3      &mkp MB1     &mkp MB2            &trans         &none         &none
+                                                  &kp ESC       &scw         &kp DEL            &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                           };
-            modifier_layer {
-                  display-name = "M0D";
+            game_layer {
+                  display-name = "G4M3";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_UP     &none         &none         &none         &none         &none           &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0
+      &kp GRAVE       &kp Q         &kp W         &kp E         &kp R         &kp T              &kp Y         &kp U         &kp I         &kp O         &kp P       &kp APOS
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp ESC      &sm LGUI      &sm LALT      &sm LCTRL       &scw          &none              &none         &scw        &sm RCTRL     &sm RALT      &sm RGUI        &none
+      &kp LSFT        &kp A         &kp S         &kp D         &kp F         &kp G              &kp H         &kp J         &kp K         &kp L        &kp SEMI     &kp RSFT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN     &none         &none        &sm MEH      &sm HYPER       &none              &none       &sm HYPER      &sm MEH        &none         &none         &none
+      &kp LCTRL       &kp Z         &kp X         &kp C         &kp V         &kp B              &kp M         &kp N        &cscol         &pcol         &quex       &kp LCTRL
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none         &none              &none         &none        &trans
+                                                 &kp ESC      &kp SPACE      &kp TAB           &kp ENTER     &kp BSPC       &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                           };
