@@ -66,7 +66,7 @@
             display-name = "SHIFT_CAPSWORD";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ss LSFT>, <&caps>;
+            bindings = <&ss LSHIFT>, <&caps>;
         };
 
 /*modmorphs*/
@@ -335,10 +335,10 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_UP   &kp HOME      &kp PG_UP     &kp PG_DN      &kp END        &none          &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0
+     &kp C_BRI_UP   &kp HOME      &kp PG_UP     &kp PG_DN      &kp END        &none           &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp TAB       &kp LEFT       &kp UP       &kp DOWN      &kp RIGHT       &none              &none       &sm RCTRL     &sm RALT      &sm RGUI       &sm MEH        &none
+      &kp TAB       &kp LEFT       &kp UP       &kp DOWN      &kp RIGHT       &none             &sm MEH        &scw        &sm RCTRL     &sm RALT      &sm RGUI      &sm HYPER
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_BRI_DN    &kp SLCK  &kp PAUSE_BREAK   &kp INS      &kp PSCRN       &none            &kp LC(A)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)     &kp LC(Y)
