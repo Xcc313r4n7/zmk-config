@@ -15,10 +15,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define FUNC 1     
-#define SYM  2
-#define NAV  3
-#define GAME 4
+#define FUNC 1
+#define NUM  2     
+#define SYM  3
+#define NAV  4
+#define GAME 5
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -66,7 +67,7 @@
             display-name = "SHIFT_CAPSWORD";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ss LSHIFT>, <&caps>;
+            bindings = <&sht LSFT 0>, <&caps>;
         };
 
 /*modmorphs*/
@@ -105,7 +106,7 @@
             require-prior-idle-ms = <150>;
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;            
+            bindings = <&kp>, <&ss>;            
                           };
 
 /*layer holdtap keys*/
@@ -274,21 +275,21 @@
 
    keymap {
          compatible = "zmk,keymap";
-            default_layer {
-                  display-name = "V8RN1UM";
+            base_layer {
+                  display-name = "V18RN1UM";
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp F         &kp P         &kp L         &kp D         &kp V            &kp MINUS       &kp U         &kp O         &kp Y         &kp B       &kp C_NEXT
+     &kp C_VOL_UP     &kp F         &kp P         &kp L         &kp D         &kp V              &kp Z         &kp U         &kp O         &kp Y         &kp B       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_MUTE       &kp S         &kp C         &kp N         &kp T         &kp K             &cscol         &kp A         &kp E         &kp I         &kp H        &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp X         &kp W         &kp M         &kp G         &kp Q              &kp Z         &pcol         &quex         &kp J        &kp APOS     &kp C_PREV
+     &kp C_VOL_DN     &kp X         &kp W         &kp M         &kp G         &kp Q            &kp MINUS       &pcol         &quex         &kp J        &kp APOS     &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &lht FUNC TAB  &sht LSFT R  &lht SYM ENTER    &lht NAV BSPC &sht RSFT SPACE   &kp DEL
+                                              &lht FUNC TAB  &sht LSFT R  &lht NUM ENTER    &lht SYM BSPC &sht RSFT SPACE &lht NAV DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                               };
@@ -298,35 +299,54 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F1        &kp F2        &kp F3        &kp F4         &none              &none        &kp F13       &kp F14       &kp F15       &kp F16        &none
+     &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0             &none        &kp F7        &kp F8        &kp F9        &kp F10     &kp C_BRI_UP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F5        &kp F6        &kp F7        &kp F8         &none              &none        &kp F17       &kp F18       &kp F19       &kp F20        &none
+      &sm HYPER     &sm RGUI      &sm RALT      &sm RCTRL       &scw         &sm MEH            &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11      &tog GAME
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F9        &kp F10       &kp F11       &kp F12        &none              &none        &kp F21       &kp F22       &kp F23       &kp F24        &none
+      &kp LC(Y)     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(A)            &none        &kp F1        &kp F2        &kp F3        &kp F12     &kp C_BRI_DN
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans         &none         &none              &none         &none         &none
+                                                 &trans         &none         &none            &kp BSPC      &kp SPACE      &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                            };
-            symbol_layer {
-                  display-name = "5YM/N#M";
+            number_layer {
+                  display-name = "N#M83R5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp GRAVE      &kp LT        &kp LBKT     &kp LBRC      &kp LPAR      &kp BSLH           &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
+     &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0           &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp TILDE     &kp AMPS       &kp DLLR     &kp HASH       &kp AT       &kp CARET          &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
+      &sm HYPER     &sm RGUI      &sm RALT      &sm RCTRL       &scw         &sm MEH           &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp GT        &kp RBKT     &kp RBRC      &kp RPAR      &kp PIPE           &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
+      &kp LC(Y)     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(A)          &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans             &kp DOT       &kp N0        &kp DEL
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                             >;
+                        };
+            symbol_layer {
+                  display-name = "5YM80L5";
+                  bindings = <
+
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+      &kp GRAVE     &kp LBKT      &kp RBKT      &kp LPAR      &kp RPAR      &kp BSLH             &none         &none         &none         &none         &none         &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+      &kp TILDE     &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET           &sm MEH        &scw        &sm RCTRL     &sm RALT      &sm RGUI      &sm HYPER
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none        &kp LT        &kp GT       &kp LBRC      &kp RBRC      &kp PIPE           &kp LC(A)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)     &kp LC(Y)
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                 &kp TAB        &scw        &kp ENTER           &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                         };
@@ -335,16 +355,16 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &out OUT_TOG   &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0             &none       &kp HOME      &kp PG_DN     &kp PG_UP      &kp END     &kp C_BRI_UP 
+        &none       &kp HOME      &kp PG_UP     &kp PG_DN      &kp END       &kp INS             &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &sm HYPER     &sm RGUI      &sm RALT      &sm RCTRL       &scw         &sm MEH             &none       &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT    &tog GAME   
+        &none       &kp LEFT       &kp UP       &kp DOWN      &kp RIGHT     &kp PSCRN           &sm MEH        &scw        &sm RCTRL     &sm RALT      &sm RGUI      &sm HYPER
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp LC(Y)     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(A)            &none       &kp INS       &kp PSCRN  &kp PAUSE_BREAK  &kp SLCK     &kp C_BRI_DN
+        &none         &none         &none         &none         &none         &none            &kp LC(A)     &kp LC(V)     &kp LC(C)     &kp LC(X)     &kp LC(Z)     &kp LC(Y)
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB        &scw         &kp ESC            &trans         &none         &none
+                                                 &kp TAB        &scw        &kp ENTER            &none         &none        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                           };
