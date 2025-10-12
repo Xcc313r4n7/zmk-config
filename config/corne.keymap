@@ -95,32 +95,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                    };
 
-/*media key modomorphs*/
-
-        ppm: playpause_mute {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "PLAYPAUSE_MUTE";
-            #binding-cells = <0>;
-            bindings = <&kp C_PP>, <&kp C_MUTE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                            };
-
-        nvu: next_volumeup {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "NEXT_VOLUMEUP";
-            #binding-cells = <0>;
-            bindings = <&kp C_NEXT>, <&kp C_VOL_UP>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                           };
-
-        pvd: previous_volumedown {
-            compatible = "zmk,behavior-mod-morph";
-            display-name = "PREVIOUS_VOLUMEDOWN";
-            #binding-cells = <0>;
-            bindings = <&kp C_PREV>, <&kp C_VOL_DN>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-                                 }; 
-
 /*mod holdtap keys*/
 
         mhl: mod_holdtap_left {
@@ -129,8 +103,8 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <125>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;            
@@ -141,8 +115,8 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <125>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <125>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;            
@@ -320,13 +294,13 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_UP     &kp F         &kp P         &kp L         &kp D         &kp K            &kp MINUS       &kp U         &kp O         &kp Y         &kp B         &nvu
+     &kp C_VOL_UP     &kp F         &kp P         &kp L         &kp D         &kp K            &kp MINUS       &kp U         &kp O         &kp Y         &kp B      &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &kp ESC        &kp S         &kp C         &kp N         &kp T         &kp V              &csco         &kp A         &kp E         &kp I         &kp H         &ppm
+      &kp C_MUTE      &kp S         &kp C         &kp N         &kp T         &kp V              &csco         &kp A         &kp E         &kp I         &kp H       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_BRI_DN     &kp Z         &kp W         &kp M         &kp G         &kp Q              &quex         &pco         &kp APOS       &kp J         &kp X         &pvd
+     &kp C_VOL_DN     &kp Z         &kp W         &kp M         &kp G         &kp Q              &quex         &pco         &kp APOS       &kp J         &kp X      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                &lht NAV TAB  &mhl LSFT R  &lht NUM ENTER    &lht SYM BSPC &mhr RSFT SPACE &lht FUNC DEL
