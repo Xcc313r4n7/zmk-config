@@ -35,30 +35,6 @@
 
    behaviors {
 
-/*sticky mods*/
-
-        sm: sticky_mods {
-            compatible = "zmk,behavior-sticky-key";
-            display-name = "STICKY_MODS";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <2000>;
-            ignore-modifiers;
-                        };
-
-/*sticky shift*/
-
-        ss: sticky_shift {
-            compatible = "zmk,behavior-sticky-key";
-            display-name = "STICKY_SHIFT";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <2000>;
-            quick-release;
-            lazy;
-            ignore-modifiers;
-                        };
-
 /*shift capsword tapdance*/
 
         scw: shift_capsword {
@@ -66,7 +42,7 @@
             display-name = "SHIFT_CAPSWORD";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ss LSFT>, <&caps>;
+            bindings = <&kp LSFT>, <&caps>;
         };
 
 /*base modmorphs*/
@@ -316,7 +292,7 @@
         &none         &none         &none         &none         &none         &none            &kp RC(X)     &kp HOME       &kp UP        &kp END      &kp RC(A)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &sm LGUI      &sm LALT      &sm LCTRL       &scw          &none            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
+        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none         &none         &none         &none         &none            &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
@@ -351,13 +327,13 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp LBKT      &kp RBKT      &kp LPAR      &kp RPAR      &kp BSLH             &none      &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP     &none         &none
+        &none       &kp LBKT      &kp RBKT      &kp LPAR      &kp RPAR      &kp BSLH             &none      &kp C_BRI_DN     &none      &kp C_BRI_UP     &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET            &none      &kp C_PREV     &kp C_PP     &kp C_NEXT       &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp LT        &kp GT       &kp LBRC      &kp RBRC      &kp PIPE             &none      &kp C_BRI_DN     &none      &kp C_BRI_UP     &none         &none
+        &none        &kp LT        &kp GT       &kp LBRC      &kp RBRC      &kp PIPE             &none      &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP     &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
@@ -369,13 +345,13 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none        &kp F9        &kp F10       &kp F11       &kp F12   &kp PAUSE_BREAK         &none         &none         &none         &none         &none         &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC             &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none        &kp F1        &kp F2        &kp F3        &kp F4       &kp PSCRN            &none         &none         &none         &none         &none         &none
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC             &none         &scw        &sm RCTRL     &sm RALT      &sm RGUI        &none
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F9        &kp F10       &kp F11       &kp F12    &kp PAUSE_BREAK        &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp TAB        &scw        &kp ENTER            &none         &none        &trans
