@@ -15,10 +15,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define NAV  1
-#define NUM  2     
-#define SYM  3
-#define FUNC 4
+#define FUNC 1
+#define NAV  2
+#define NUM  3
+#define SYM  4
+#define MED  5
+#define BLUE 6
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -150,16 +152,6 @@
             bindings = <&clr_bt_3>, <&sel_bt_3>;
                                };
 
-        bt4: bluetooth_4_clear {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "BLUETOOTH_4_CLEAR";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <1500>;
-            bindings = <&clr_bt_4>, <&sel_bt_4>;
-                               };
-             };
-
    macros {
 
 /*bluetooth press macros*/
@@ -197,15 +189,6 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 3>
-                ;
-                           };
-
-        sel_bt_4: sel_bt_4 {            
-            compatible = "zmk,behavior-macro";
-            display-name = "SEL_BT_4";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 4>
                 ;
                            };
 
@@ -251,16 +234,6 @@
                 ;
                            };
 
-        clr_bt_4: clr_bt_4 {            
-            compatible = "zmk,behavior-macro";
-            display-name = "CLR_BT_4";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &bt BT_SEL 4>
-                , <&macro_tap &bt BT_CLR>
-                ;
-                           };
-
            };
 
    keymap {
@@ -279,10 +252,29 @@
      &kp C_VOL_DN     &kp F         &kp B         &kp D         &kp L         &kp J              &kp Z         &kp W         &kp O         &kp U         &pco       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht NAV TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht FUNC ENTER
+                                              &lht FUNC BSPC  &lht NUM R   &lht NAV TAB     &lht MED ENTER &lht SYM SPACE &lht BLUE DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                               };
+                           };
+            function_layer {
+                  display-name = "FUNC710N";
+                  bindings = <
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none         &none         &none         &none         &none         &none         &kp PAUSE_BREAK   &kp F7        &kp F8        &kp F9        &kp F10        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none             &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none         &none         &none         &none         &none         &none            &kp PSCRN      &kp F1        &kp F2        &kp F3        &kp F12        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                 &trans         &none         &none            &kp ENTER     &kp SPACE      &kp DEL
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                             >;
+                          };
             navigation_layer {
                   display-name = "N4V19473";
                   bindings = <
@@ -298,10 +290,10 @@
         &none         &none         &none         &none         &none         &none            &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans         &none         &none             &kp DEL      &kp SPACE     &kp ENTER
+                                                  &none        &trans         &none            &kp ENTER     &kp SPACE      &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                           };
+                        };
             number_layer {
                   display-name = "N#M83R5";
                   bindings = <
@@ -311,52 +303,70 @@
         &none         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0      &bt4 0 0          &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
+        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none         &none      &out OUT_TOG        &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
+        &none         &none         &none         &none         &none         &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans             &kp DEL       &kp N0        &kp DOT
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                        };
             symbol_layer {
                   display-name = "5YM80L5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp LBKT      &kp RBKT      &kp LPAR      &kp RPAR      &kp BSLH             &none      &kp C_BRI_DN     &none      &kp C_BRI_UP     &none         &none
+        &none       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH             &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET            &none      &kp C_PREV     &kp C_PP     &kp C_NEXT       &none         &none
+        &none       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET            &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp LT        &kp GT       &kp LBRC      &kp RBRC      &kp PIPE             &none      &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP     &none         &none
+        &none        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE             &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                        };
-            function_layer {
-                  display-name = "FUNC710N";
+            media_layer {
+                  display-name = "M3D14";
                   bindings = <
+
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F9        &kp F10       &kp F11       &kp F12   &kp PAUSE_BREAK         &none         &none         &none         &none         &none         &none
+        &none         &none      &kp C_BRI_DN     &none      &kp C_BRI_UP     &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC             &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+        &none         &none      &kp C_PREV     &kp C_PP     &kp C_NEXT       &none              &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F1        &kp F2        &kp F3        &kp F4       &kp PSCRN            &none         &none         &none         &none         &none         &none
+        &none         &none      &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP     &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB        &scw         &kp BSPC            &none         &none        &trans
+                                                &kp BSPC        &kp R        &kp TAB             &none        &trans         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                          };
+                        };
+            bluetooth_layer {
+                  display-name = "8LU37007H";
+                  bindings = <
+
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none        &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0    &out OUT_TOG          &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+        &none         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                &kp BSPC        &kp R        &kp TAB             &none         &none        &trans
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                             >;
+                        };
           };
   };
