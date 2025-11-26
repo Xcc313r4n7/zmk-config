@@ -45,7 +45,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LSFT>, <&caps>;
-        };
+                             };
 
 /*base modmorphs*/
 
@@ -98,7 +98,7 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;            
-                                };
+                               };
 
 
 /*layer holdtap keys*/
@@ -151,7 +151,7 @@
             tapping-term-ms = <1500>;
             bindings = <&clr_bt_3>, <&sel_bt_3>;
                                };
-
+               };
    macros {
 
 /*bluetooth press macros*/
@@ -368,6 +368,6 @@
                                                 &kp BSPC        &kp R        &kp TAB             &none         &none        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                        };
+                           };
           };
   };
