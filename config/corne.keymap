@@ -37,16 +37,6 @@
 
    behaviors {
 
-/*shift capsword tapdance*/
-
-        scw: shift_capsword {
-            compatible = "zmk,behavior-tap-dance";
-            display-name = "SHIFT_CAPSWORD";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LSFT>, <&caps>;
-                             };
-
 /*base modmorphs*/
 
         csco: comma_semicolon {
@@ -264,7 +254,7 @@
         &none         &none         &none         &none         &none         &none         &kp PAUSE_BREAK   &kp F7        &kp F8        &kp F9        &kp F10        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none             &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11        &none
+        &none       &sk LGUI      &sk LALT      &sk LCTRL      &sk LSFT       &caps             &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none         &none         &none         &none         &none            &kp PSCRN      &kp F1        &kp F2        &kp F3        &kp F12        &none
@@ -283,7 +273,7 @@
         &none         &none         &none         &none         &none         &none            &kp RC(X)     &kp HOME       &kp UP        &kp END      &kp RC(A)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
+        &none       &sk LGUI      &sk LALT      &sk LCTRL      &sk LSFT       &caps            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none         &none         &none         &none         &none            &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
@@ -302,7 +292,7 @@
         &none         &none         &none         &none         &none         &none            &kp FSLH       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp LGUI      &kp LALT      &kp LCTRL       &scw          &none            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
+        &none       &sk LGUI      &sk LALT      &sk LCTRL      &sk LSFT       &caps            &kp ASTRK      &kp N4        &kp N5        &kp N6       &kp PLUS        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none         &none         &none         &none         &none            &kp PRCNT      &kp N1        &kp N2        &kp N3       &kp EQUAL       &none
@@ -321,7 +311,7 @@
         &none       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH             &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET            &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+        &none       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp CARET            &caps        &sk RSFT     &kp RCTRL     &kp RALT      &kp RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE             &none         &none         &none         &none         &none         &none
@@ -340,7 +330,7 @@
         &none         &none      &kp C_BRI_DN     &none      &kp C_BRI_UP     &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none      &kp C_PREV     &kp C_PP     &kp C_NEXT       &none              &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+        &none         &none      &kp C_PREV     &kp C_PP     &kp C_NEXT       &none              &caps        &sk RSFT     &kp RCTRL     &kp RALT      &kp RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none      &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP     &none              &none         &none         &none         &none         &none         &none
@@ -359,7 +349,7 @@
         &none         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0    &out OUT_TOG          &none         &scw        &kp RCTRL     &kp RALT      &kp RGUI        &none
+        &none        &bt0 0 0      &bt1 0 0      &bt2 0 0      &bt3 0 0    &out OUT_TOG          &caps        &sk RSFT     &kp RCTRL     &kp RALT      &kp RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
         &none         &none         &none         &none         &none         &none              &none         &none         &none         &none         &none         &none
