@@ -348,7 +348,6 @@
                                                 &kp BSPC        &kp R        &kp TAB             &none        &trans         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                        };
             bluetooth_layer {
                   display-name = "8LU37007H";
                   bindings = <
