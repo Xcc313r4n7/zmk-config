@@ -256,7 +256,6 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                               };
-                           };
             function_layer {
                   display-name = "FUNC710N";
                   bindings = <
@@ -312,6 +311,7 @@
                                                   &none         &none        &trans             &kp DEL       &kp N0        &kp DOT
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
+                          };
             symbol_layer {
                   display-name = "5YM80L5";
                   bindings = <
@@ -330,6 +330,7 @@
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
+                          };
             media_layer {
                   display-name = "M3D14";
                   bindings = <
@@ -348,6 +349,7 @@
                                                 &kp BSPC        &kp R        &kp TAB             &none        &trans         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
+                          };
             bluetooth_layer {
                   display-name = "8LU37007H";
                   bindings = <
