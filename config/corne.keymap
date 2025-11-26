@@ -242,7 +242,7 @@
      &kp C_VOL_DN     &kp F         &kp B         &kp D         &kp L         &kp J              &kp Z         &kp W         &kp O         &kp U         &pco       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &lht FUNC BSPC  &lht NAV R   &lht NUM TAB     &lht SYM ENTER &lht MED SPACE &lht BLUE DEL
+                                              &lht FUNC BSPC  &mhl NAV R   &lht NUM TAB     &lht SYM ENTER &mhr MED SPACE &lht BLUE DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                               };
