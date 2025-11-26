@@ -32,7 +32,7 @@
             compatible = "zmk,behavior-caps-word";
             display-name = "CAPSWORD";
             #binding-cells = <0>;
-            continue-list = <UNDER MINUS BSPC DEL LEFT DOWN UP RIGHT>;
+            continue-list = <UNDER MINUS BSPC DEL>;
                        };
 
    behaviors {
@@ -289,7 +289,7 @@
         &none         &none         &none         &none         &none         &none            &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none        &trans         &none            &kp ENTER     &kp SPACE      &kp DEL
+                                                  &none        &trans         &none            &kp ENTER     &kp SPACE     &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                         };
