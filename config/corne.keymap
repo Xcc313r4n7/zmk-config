@@ -264,10 +264,10 @@
         &none         &none         &none         &none         &none         &none            &kp RC(X)     &kp HOME       &kp UP        &kp END      &kp RC(A)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
+        &none       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT      &sys_reset         &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none         &none         &none            &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
+        &none         &none         &none         &none         &caps      &bootloader         &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans         &none         &none             &kp DEL      &kp SPACE     &kp ENTER
@@ -320,10 +320,10 @@
         &none        &kp F1        &kp F2        &kp F3        &kp F4     &kp PAUSE_BREAK        &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC             &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI        &none
+        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC           &sys_reset    &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F9        &kp F10       &kp F11       &kp F12      &kp PSCRN            &none         &none         &none         &none         &none         &none
+        &none        &kp F9        &kp F10       &kp F11       &kp F12      &kp PSCRN         &bootloader      &caps         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp TAB        &kp R        &kp BSPC            &none         &none        &trans
