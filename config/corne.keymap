@@ -292,6 +292,7 @@
                                                   &none         &none        &trans             &kp DEL       &kp N0        &kp DOT
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
+                         };
             symbol_layer {
                     display-name = "5YM80L5";
                     bindings = <
