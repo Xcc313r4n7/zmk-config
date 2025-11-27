@@ -15,12 +15,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define FUNC 1
-#define NAV  2
-#define NUM  3
-#define SYM  4
-#define MED  5
-#define BLUE 6
+#define NAV  1
+#define NUM  2
+#define SYM  3
+#define FUNC 4
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -253,7 +251,7 @@
      &kp C_VOL_DN     &kp F         &kp B         &kp D         &kp L         &kp J              &kp Z         &kp W         &kp O         &kp U         &pco       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &lht FUNC TAB  &mhl LSFT R  &lht NAV BSPC      &lht SYM DEL &mhr RSFT SPACE &lht BLUE ENTER
+                                               &lht NAV TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht FUNC ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
             };
@@ -295,7 +293,7 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                          };
-            symbol_media_layer {
+            symbol_layer {
                     display-name = "5YM80L5";
                     bindings = <
 
