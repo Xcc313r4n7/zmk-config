@@ -251,7 +251,7 @@
      &kp C_VOL_DN     &kp F         &kp B         &kp D         &kp L         &kp J              &kp Z         &kp W         &kp O         &kp U         &pco       &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht NAV TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht FUNC ENTER
+                                              &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht NAV ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
