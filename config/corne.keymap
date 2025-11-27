@@ -15,10 +15,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define NAV  1
+#define FUNC 1
 #define NUM  2
 #define SYM  3
-#define FUNC 4
+#define NAV  4
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -254,26 +254,26 @@
                                                &lht NAV TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht FUNC ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
-            };
-            navigation_layer {
-                    display-name = "N4V19473";
+                       };
+            function_layer {
+                    display-name = "FUNC710N";
                     bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none         &none         &none            &kp RC(X)     &kp HOME       &kp UP        &kp END      &kp RC(A)       &none
+        &none         &none         &none         &none         &none         &none         &kp PAUSE_BREAK   &kp F7        &kp F8        &kp F9        &kp F10        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps            &kp RC(C)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(Z)       &none
+        &none       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps             &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none         &none         &none         &none       &sys_reset   &bootloader         &kp RC(V)     &kp PG_DN      &kp INS      &kp PG_UP     &kp RC(Y)       &none
+        &none         &none         &none         &none       &sys_reset   &bootloader         &kp PSCRN      &kp F1        &kp F2        &kp F3        &kp F12        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &trans         &none         &none             &kp DEL      &kp SPACE     &kp ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                                >;
-            };
+                             };
             number_layer {
                   display-name = "N#M83R5";
                   bindings = <
@@ -292,7 +292,6 @@
                                                   &none         &none        &trans             &kp DEL       &kp N0        &kp DOT
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
-                         };
             symbol_layer {
                     display-name = "5YM80L5";
                     bindings = <
@@ -311,24 +310,24 @@
                                                 &kp GRAVE     &kp EQUAL     &kp TILDE           &trans         &none         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                     >;
-            };
-            function_layer {
-                    display-name = "FUNC710N";
+                         };
+            navigation_layer {
+                    display-name = "N4V19473";
                     bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F1        &kp F2        &kp F3        &kp F4     &kp PAUSE_BREAK        &none         &none         &none         &none         &none         &none
+        &none       &kp RC(A)     &kp HOME       &kp UP        &kp END      &kp RC(X)            &none         &none         &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F5        &kp F6        &kp F7        &kp F8        &kp ESC             &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI        &none
+        &none       &kp RC(Z)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(C)            &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI        &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-        &none        &kp F9        &kp F10       &kp F11       &kp F12      &kp PSCRN         &bootloader    &sys_reset      &none         &none         &none         &none
+        &none       &kp RC(Y)     &kp PG_UP      &kp INS      &kp PG_DN     &kp RC(V)         &bootloader    &sys_reset      &none         &none         &none         &none
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp TAB        &kp R        &kp BSPC            &none         &none        &trans
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                                >;
-                            };
+                           };
           };
   };
