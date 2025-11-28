@@ -245,10 +245,10 @@
      &kp C_VOL_UP     &kp F         &kp B         &kp D         &kp L         &kp J              &kp Z         &kp W         &kp O         &kp U         &pco       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp M              &kp Y         &kp C         &kp A         &kp E         &kp I       &kp C_PP
+      &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp V              &kp Y         &kp C         &kp A         &kp E         &kp I       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp X         &kp P         &kp K         &kp V         &kp Q            &kp MINUS       &kp G        &kp APOS       &quex         &csco      &kp C_PREV
+     &kp C_VOL_DN     &kp X         &kp P         &kp K         &kp M         &kp Q            &kp MINUS       &kp G        &kp APOS       &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                               &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht NAV ENTER
