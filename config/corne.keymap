@@ -317,13 +317,13 @@
                     bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(A)     &kp HOME       &kp UP        &kp END      &kp RC(X)            &none         &none         &none         &none         &none        &trans
+       &trans       &kp RC(A)     &kp HOME       &kp INS       &kp END      &kp RC(X)            &none         &none         &none         &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(Z)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(C)            &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
+       &trans       &kp RC(Z)     &kp LEFT       &kp UP       &kp RIGHT     &kp RC(C)            &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(Y)     &kp PG_UP      &kp INS      &kp PG_DN     &kp RC(V)            &none       &sys_reset   &bootloader      &none         &none        &trans
+       &trans       &kp RC(Y)     &kp PG_UP     &kp DOWN      &kp PG_DN     &kp RC(V)            &none       &sys_reset   &bootloader      &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp TAB        &kp R        &kp BSPC            &none         &none        &trans
