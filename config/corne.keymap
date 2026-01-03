@@ -134,7 +134,7 @@
       &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp L              &kp Y         &kp C         &kp A         &kp E         &kp I       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp F         &kp B         &kp K         &kp V         &kp Q              &tgra         &kp G       &kp APOS        &quex         &csco      &kp C_PREV
+     &kp C_VOL_DN     &kp F         &kp B         &kp K         &kp V         &kp Q            &kp APOS        &kp G         &tgra         &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                               &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht MED DEL &mhr RSFT SPACE &lht NAV ENTER
