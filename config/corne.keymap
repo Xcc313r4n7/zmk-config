@@ -87,7 +87,7 @@
             display-name = "MOD_HOLDTAP_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
-            require-prior-idle-ms = <100>;
+            require-prior-idle-ms = <125>;
             tapping-term-ms = <125>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
@@ -134,7 +134,7 @@
      &kp C_VOL_UP     &kp X         &kp P         &kp D         &kp M         &kp Z              &kp J         &kp W         &kp O         &kp U         &pco       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-      &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp L              &kp Y      &mhl RSFT C   &mhl RCTRL A   &mhl RALT E  &mhl RGUI I    &kp C_PP
+      &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp L              &kp Y      &mhr RSFT C   &mhr RCTRL A   &mhr RALT E  &mhr RGUI I    &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
      &kp C_VOL_DN  &mhl LGUI F   &mhl LALT B   &mhl LCTRL K  &mhl LSFT V      &kp Q            &kp APOS        &kp G         &tgra         &quex         &csco      &kp C_PREV
