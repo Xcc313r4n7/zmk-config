@@ -72,6 +72,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
                                    };
 
+        tgra: tilde_grave {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "TILDE_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+                              };
+
 /*mod holdtap keys*/
 
         mhl: mod_holdtap_left {
@@ -120,13 +128,13 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp F         &kp B         &kp D         &kp V         &kp Z            &kp GRAVE       &kp W         &kp O         &kp U         &pco       &kp C_NEXT
+     &kp C_VOL_UP     &kp X         &kp P         &kp D         &kp M         &kp Z              &kp J         &kp W         &kp O         &kp U         &pco       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
       &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp L              &kp Y         &kp C         &kp A         &kp E         &kp I       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp X         &kp P         &kp K         &kp M         &kp J              &kp Q         &kp G       &kp APOS        &quex         &csco      &kp C_PREV
+     &kp C_VOL_DN     &kp F         &kp B         &kp K         &kp V         &kp Q              &tgra         &kp G       &kp APOS        &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                               &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht MED DEL &mhr RSFT SPACE &lht NAV ENTER
