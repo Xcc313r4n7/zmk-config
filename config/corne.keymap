@@ -87,24 +87,19 @@
             display-name = "MOD_HOLDTAP_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
-            //require-prior-idle-ms = <100>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <175>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-            //hold-trigger-key-positions = <21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41>; // List of keys on the right side of the keyboard
-            //hold-trigger-on-release;
                               };
+
         mhr: mod_holdtap_right {
             compatible = "zmk,behavior-hold-tap";
             display-name = "MOD_HOLDTAP_RIGHT";
             #binding-cells = <2>;
             flavor = "balanced";
-            //require-prior-idle-ms = <100>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <175>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-            //hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20>; // List of keys on the left side of the keyboard
-            //hold-trigger-on-release;
                                };
 
 /*layer holdtap keys*/
@@ -114,8 +109,7 @@
             display-name = "LAYER_HOLDTAP";
             #binding-cells = <2>;
             flavor = "balanced";
-            //require-prior-idle-ms = <100>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <175>;
             quick-tap-ms = <200>;
             bindings = <&mo>, <&kp>;
                            };
@@ -124,17 +118,17 @@
    keymap {
          compatible = "zmk,keymap";
             base_layer {
-                  display-name = "5N7H";
+                  display-name = "B453";
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp X         &kp P         &kp D         &kp M         &kp Z              &kp J         &kp W         &kp O         &kp U         &pco       &kp C_NEXT
+     &kp C_VOL_UP     &kp F         &kp P         &kp D         &kp M         &kp X              &kp J         &kp W         &kp O         &kp U         &pco       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
       &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp L              &kp Y         &kp C         &kp A         &kp E         &kp I       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_DN     &kp F         &kp B         &kp K         &kp V         &kp Q            &kp APOS        &kp G         &tgra         &quex         &csco      &kp C_PREV
+     &kp C_VOL_DN     &kp Z         &kp B         &kp K         &kp V         &kp Q            &kp APOS        &kp G         &tgra         &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                               &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht MED DEL &mhr RSFT SPACE &lht NAV ENTER
