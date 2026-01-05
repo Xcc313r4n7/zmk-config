@@ -17,7 +17,7 @@
 #define BASE 0
 #define FUNC 1
 #define NUM  2
-#define MED  3
+#define SYM  3
 #define NAV  4
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
@@ -131,7 +131,7 @@
      &kp C_VOL_DN     &kp Z         &kp B         &kp K         &kp V         &kp Q              &kp J         &kp G         &tgra         &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht MED DEL &mhr RSFT SPACE &lht NAV ENTER
+                                              &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht NAV ENTER
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
@@ -154,38 +154,38 @@
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                                >;
                              };
-            numsym_layer {
-                  display-name = "N#M-SYM";
+            number_layer {
+                  display-name = "N#M83R5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH           &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
+       &trans      &bt BT_CLR       &none         &none         &none         &none            &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp UNDER          &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
+       &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG        &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE           &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
+       &trans         &none         &none         &none         &none         &none            &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none        &trans             &kp DOT        &kp N0      &kp EQUAL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                          };
-            media_layer {
-                    display-name = "M3D14";
+            symbol_layer {
+                    display-name = "SYM8015";
                     bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bt BT_CLR       &none         &none         &none         &none              &none      &kp C_PREV    &kp C_NEXT     &kp C_PP        &none        &trans
+       &trans       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH             &none      &kp C_PREV    &kp C_NEXT     &kp C_PP        &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG          &none      &kp C_VOL_DN  &kp C_VOL_UP   &kp C_MUTE      &none        &trans
+       &trans       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp UNDER            &none      &kp C_VOL_DN  &kp C_VOL_UP   &kp C_MUTE      &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none              &none      &kp C_BRI_DN  &kp C_BRI_UP     &none         &none        &trans
+       &trans        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE             &none      &kp C_BRI_DN  &kp C_BRI_UP     &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                  &kp TAB        &kp R        &kp BSPC           &trans         &none         &none
