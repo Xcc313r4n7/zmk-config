@@ -26,6 +26,11 @@
 
 /{
 
+    &mmv {
+        time-to-max-speed-ms = <300>;
+        acceleration-exponent = <2>;
+         };
+
    behaviors {
 
            /*capsword*/
@@ -36,11 +41,6 @@
                #binding-cells = <0>;
                continue-list = <UNDER MINUS BSPC DEL>;
            };
-
-       &mmv {
-           time-to-max-speed-ms = <300>;
-           acceleration-exponent = <2>;
-            };
 
 /*sticky mods*/
 
@@ -108,7 +108,7 @@
                   bindings = <
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-     &kp C_VOL_UP     &kp X         &kp P         &kp D         &kp M         &kp J              &kp Z         &kp Y         &kp O         &kp U         &pco       &kp C_NEXT
+     &kp C_VOL_UP     &kp X         &kp P         &kp D         &kp M         &kp Z              &kp J         &kp Y         &kp O         &kp U         &pco       &kp C_NEXT
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
       &kp C_MUTE      &kp S         &kp N         &kp T         &kp H         &kp V              &kp W         &kp C         &kp A         &kp E         &kp I       &kp C_PP
