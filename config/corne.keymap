@@ -6,7 +6,7 @@
 
 /*defines*/
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100   // default: 10 without smooth scrolling
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/pointing.h>
@@ -25,7 +25,7 @@
 #define MEH   LS(LC(LALT))
 
 &mmv {
-    time-to-max-speed-ms = <350>;
+    time-to-max-speed-ms = <500>;
     acceleration-exponent = <2>;
 };
 
@@ -94,8 +94,8 @@
             display-name = "LAYER_HOLDTAP";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <200>;
             require-prior-idle-ms = <150>;
             bindings = <&mo>, <&kp>;
                            };
