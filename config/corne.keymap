@@ -24,6 +24,11 @@
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
+&mmv {
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <2>;
+};
+
 /{
 
     behaviors {
@@ -94,12 +99,6 @@
             require-prior-idle-ms = <150>;
             bindings = <&mo>, <&kp>;
                            };
-             };
-
-
-        &mmv {
-            time-to-max-speed-ms = <300>;
-            acceleration-exponent = <2>;
              };
 
    keymap {
