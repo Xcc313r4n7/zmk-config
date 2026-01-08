@@ -24,25 +24,23 @@
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
-/ {
-
-/*capsword*/
-
-        caps: capsword {
-            compatible = "zmk,behavior-caps-word";
-            display-name = "CAPSWORD";
-            #binding-cells = <0>;
-            continue-list = <UNDER MINUS BSPC DEL>;
-                       };
+/{
 
    behaviors {
 
+           /*capsword*/
+
+       caps: capsword {
+               compatible = "zmk,behavior-caps-word";
+               display-name = "CAPSWORD";
+               #binding-cells = <0>;
+               continue-list = <UNDER MINUS BSPC DEL>;
+           };
+
        &mmv {
-           x-input-code = <INPUT_REL_X>;
-           y-input-code = <INPUT_REL_Y>;
            time-to-max-speed-ms = <300>;
            acceleration-exponent = <2>;
-       };
+            };
 
 /*sticky mods*/
 
@@ -98,7 +96,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>
+            require-prior-idle-ms = <150>;
             bindings = <&mo>, <&kp>;
                            };
              };
