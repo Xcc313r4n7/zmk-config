@@ -24,23 +24,23 @@
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
-/{
-
     &mmv {
-        time-to-max-speed-ms = <300>;
-        acceleration-exponent = <2>;
+            time-to-max-speed-ms = <300>;
+    acceleration-exponent = <2>;
          };
 
-   behaviors {
+/{
+
+    behaviors {
 
            /*capsword*/
 
        caps: capsword {
-               compatible = "zmk,behavior-caps-word";
-               display-name = "CAPSWORD";
-               #binding-cells = <0>;
-               continue-list = <UNDER MINUS BSPC DEL>;
-           };
+            compatible = "zmk,behavior-caps-word";
+            display-name = "CAPSWORD";
+            #binding-cells = <0>;
+            continue-list = <UNDER MINUS BSPC DEL>;
+                     };
 
 /*sticky mods*/
 
