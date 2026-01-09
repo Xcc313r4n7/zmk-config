@@ -137,7 +137,7 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bt BT_CLR   &out OUT_TOG   &bt BT_PREV   &bt BT_NEXT   &kp C_BRI_UP        &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
+       &trans      &bt BT_CLR   &out OUT_TOG   &bt BT_PRV    &bt BT_NXT    &kp C_BRI_UP        &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans         &none       &kp C_PP     &kp C_PREV    &kp C_NEXT    &kp C_BRI_DN        &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
