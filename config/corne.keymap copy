@@ -6,8 +6,8 @@
 
 /*defines*/
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100   // default: 10 without smooth scrolling
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/keys.h>
@@ -17,33 +17,40 @@
 #define BASE 0
 #define FUNC 1
 #define NUM  2
-#define SYM  3
+#define MOU  3
 #define NAV  4
+#define SYM  5
+#define MED  6
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
-/ {
+&mmv {
+    time-to-max-speed-ms = <400>;
+    acceleration-exponent = <1>;
+};
 
-/*capsword*/
+/{
 
-        caps: capsword {
+    behaviors {
+
+           /*capsword*/
+
+       caps: capsword {
             compatible = "zmk,behavior-caps-word";
             display-name = "CAPSWORD";
             #binding-cells = <0>;
             continue-list = <UNDER MINUS BSPC DEL>;
-                       };
-
-   behaviors {
+                     };
 
 /*sticky mods*/
 
-           sm: sticky_mods {
-                   compatible = "zmk,behavior-sticky-key";
-                   display-name = "STICKY_MODS";
-                   #binding-cells = <1>;
-                   bindings = <&kp>;
-                   release-after-ms = <2000>;
-                   ignore-modifiers;
+        sm: sticky_mods {
+            compatible = "zmk,behavior-sticky-key";
+            display-name = "STICKY_MODS";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <2000>;
+            ignore-modifiers;
                            };
 
 /*base modmorphs*/
@@ -80,28 +87,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
                               };
 
-/*mod holdtap keys*/
-
-        mhl: mod_holdtap_left {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "MOD_HOLDTAP_LEFT";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&kp>;
-                              };
-
-        mhr: mod_holdtap_right {
-            compatible = "zmk,behavior-hold-tap";
-            display-name = "MOD_HOLDTAP_RIGHT";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&kp>;
-                               };
-
 /*layer holdtap keys*/
 
         lht: layer_holdtap {
@@ -109,8 +94,9 @@
             display-name = "LAYER_HOLDTAP";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <150>;
+            tapping-term-ms = <225>;
             quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
             bindings = <&mo>, <&kp>;
                            };
              };
@@ -131,7 +117,7 @@
      &kp C_VOL_DN     &kp F         &kp B         &kp K         &kp L         &kp Q              &tgra         &kp G       &kp APOS        &quex         &csco      &kp C_PREV
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                              &lht FUNC TAB  &mhl LSFT R  &lht NUM BSPC      &lht SYM DEL &mhr RSFT SPACE &lht NAV ENTER
+                                              &lht FUNC TAB  &lht NUM R   &lht MOU BSPC     &lht NAV ENTER &lht SYM SPACE &lht MED DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
@@ -141,74 +127,111 @@
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp PSCRN      &kp F7        &kp F8        &kp F9        &kp F10       &trans
+       &trans      &bootloader    &kp LC(A)     &kp LC(Z)     &kp LC(Y)       &none              &none        &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
        &trans       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps             &kp ESC       &kp F4        &kp F5        &kp F6        &kp F11       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none         &kp PAUSE_BREAK   &kp F1        &kp F2        &kp F3        &kp F12       &trans
+       &trans       &sys_reset    &kp LC(X)     &kp LC(C)     &kp LC(V)       &none              &none        &kp F1        &kp F2        &kp F3        &kp F12       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &trans       &sys_reset   &bootloader          &kp DEL      &kp SPACE     &kp ENTER
+                                                 &trans         &none         &none            &kp ENTER     &kp SPACE      &kp DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                                >;
-                             };
+                           };
             number_layer {
                   display-name = "N#M83R5";
                   bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bt BT_CLR       &none         &none         &none         &none            &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
+       &trans      &bootloader    &kp LC(A)     &kp LC(Z)     &kp LC(Y)       &none            &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG        &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
+       &trans       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps            &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none         &none         &none         &none         &none            &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
+       &trans       &sys_reset    &kp LC(X)     &kp LC(C)     &kp LC(V)       &none            &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                  &none         &none        &trans             &kp DOT        &kp N0      &kp EQUAL
+                                                  &none        &trans         &none             &kp DOT        &kp N0      &kp EQUAL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                              >;
                          };
+            mouse_layer {
+                    display-name = "M0U53";
+                    bindings = <
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans      &bootloader    &kp LC(A)     &kp LC(Z)     &kp LC(Y)       &none              &none        &mkp MB4    &mmv MOVE_UP    &mkp MB5       &none        &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans       &sm LGUI      &sm LALT      &sm LCTRL     &sm LSFT        &caps              &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  &none        &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans       &sys_reset    &kp LC(X)     &kp LC(C)     &kp LC(V)       &none              &none     &msc SCRL_DOWN &msc SCRL_UP   &kp PSCRN       &none        &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                  &none         &none        &trans            &mkp LCLK     &mkp RCLK     &mkp MCLK
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                               >;
+                        };
+            navigation_layer {
+                    display-name = "N4V19473";
+                    bindings = <
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans         &none       &kp HOME       &kp UP        &kp END        &none              &none       &kp RC(Y)     &kp RC(Z)     &kp RC(A)    &bootloader     &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans         &none       &kp LEFT      &kp DOWN      &kp RIGHT       &none              &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans         &none        &kp INS      &kp PG_UP     &kp PG_DN       &none              &none       &kp RC(V)     &kp RC(C)     &kp RC(X)     &sys_reset     &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                 &kp TAB        &kp R        &kp BSPC           &trans         &none         &none
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                               >;
+                             };
             symbol_layer {
                     display-name = "SYM8015";
                     bindings = <
 
 //  ___________________________________________________________________________________       ___________________________________________________________________________________
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH             &none      &kp C_PREV    &kp C_NEXT     &kp C_PP        &none        &trans
+       &trans       &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT      &kp BSLH             &none       &kp RC(Y)     &kp RC(Z)     &kp RC(A)    &bootloader     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp UNDER            &none      &kp C_VOL_DN  &kp C_VOL_UP   &kp C_MUTE      &none        &trans
+       &trans       &kp AMPS      &kp DLLR      &kp HASH       &kp AT       &kp UNDER            &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE             &none      &kp C_BRI_DN  &kp C_BRI_UP     &none         &none        &trans
+       &trans        &kp LT        &kp GT       &kp LPAR      &kp RPAR      &kp PIPE             &none       &kp RC(V)     &kp RC(C)     &kp RC(X)     &sys_reset     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB        &kp R        &kp BSPC           &trans         &none         &none
-//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
-                    >;
-                         };
-            navigation_layer {
-                    display-name = "N4V19473";
-                    bindings = <
-//  ___________________________________________________________________________________       ___________________________________________________________________________________
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(A)     &kp PG_UP      &kp UP       &kp PG_DN     &kp RC(C)            &none         &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(Z)     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RC(V)            &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &kp RC(Y)     &kp HOME       &kp INS       &kp END      &kp RC(X)            &none         &none         &none         &none         &none        &trans
-// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
-//                                           |             |             |             ||  ||             |             |             |
-                                                 &kp TAB        &kp R        &kp BSPC         &bootloader    &sys_reset     &trans
+                                                 &kp TAB        &kp R        &kp BSPC            &none        &trans         &none
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
                                >;
-                           };
+                        };
+            media_layer {
+                    display-name = "M3D14";
+                    bindings = <
+
+//  ___________________________________________________________________________________       ___________________________________________________________________________________
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans      &bt BT_SEL 0  &kp C_BRI_UP  &kp C_NEXT    &kp C_VOL_UP     &none              &none       &kp RC(Y)     &kp RC(Z)     &kp RC(A)    &bootloader     &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans      &bt BT_SEL 1  &kp C_BRI_DN  &kp C_PREV    &kp C_VOL_DN     &none              &caps       &sm RSFT      &sm RCTRL     &sm RALT      &sm RGUI       &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+// |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
+       &trans      &bt BT_CLR       &none       &kp C_PP      &kp C_MUTE      &none              &none       &kp RC(V)     &kp RC(C)     &kp RC(X)     &sys_reset     &trans
+// |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
+//                                           |             |             |             ||  ||             |             |             |
+                                                 &kp TAB        &kp R        &kp BSPC            &none         &none        &trans
+//                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|
+                               >;
+                        };
           };
   };
