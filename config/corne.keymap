@@ -82,7 +82,7 @@
             #binding-cells = <0>;
             bindings = <&kp TILDE>, <&kp GRAVE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-                              };
+                          };
 
 /*mod holdtap*/
 
@@ -96,7 +96,6 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
                            };
-             };
 
 /*layer holdtap*/
 
