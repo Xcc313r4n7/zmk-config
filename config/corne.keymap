@@ -15,10 +15,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define MOU  1
-#define NUM  2
-#define SYM  3
-#define NAV  4
+#define NUM  1
+#define MOU  2
+#define NAV  3
+#define SYM  4
 #define HYPER LS(LC(LG(LALT)))
 #define MEH   LS(LC(LALT))
 
@@ -27,7 +27,7 @@
 &mmv {
     time-to-max-speed-ms = <400>;
     acceleration-exponent = <1>;
-};
+     };
 
 /*sticky keys*/
 
@@ -35,7 +35,7 @@
     release-after-ms = <1500>;
     ignore-modifiers;
     quick-release;
-};
+    };
 
 /{
 
@@ -92,7 +92,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            quick-tap-ms = <175;
+            quick-tap-ms = <175>;
             require-prior-idle-ms = <125>;
             bindings = <&mo>, <&kp>;
                            };
