@@ -158,10 +158,10 @@
        &trans         &none       &kp LC(A)     &kp LC(Z)     &kp LC(Y)       &none              &none        &mkp MB4    &mmv MOVE_UP    &mkp MB5       &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans       &sk LGUI      &sk LALT      &sk LCTRL     &sk LSFT        &caps              &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  &none        &trans
+       &trans       &sk LGUI      &sk LALT      &sk LCTRL     &sk LSFT        &caps              &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp PSCRN     &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none       &kp LC(X)     &kp LC(C)     &kp LC(V)       &none              &none     &msc SCRL_DOWN &msc SCRL_UP   &kp PSCRN       &none        &trans
+       &trans         &none       &kp LC(X)     &kp LC(C)     &kp LC(V)       &none              &none     &msc SCRL_DOWN &msc SCRL_UP     &none         &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                &bootloader    &sys_reset     &trans            &mkp MCLK     &mkp LCLK     &mkp RCLK
@@ -176,10 +176,10 @@
        &trans         &none       &kp HOME       &kp UP        &kp END        &none              &none       &kp RC(Y)     &kp RC(Z)     &kp RC(A)       &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none       &kp LEFT      &kp DOWN      &kp RIGHT       &none              &caps       &sk RSFT      &sk RCTRL     &sk RALT      &sk RGUI       &trans
+       &trans        &kp INS      &kp LEFT      &kp DOWN      &kp RIGHT       &none              &caps       &sk RSFT      &sk RCTRL     &sk RALT      &sk RGUI       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none        &kp INS      &kp PG_UP     &kp PG_DN       &none              &none       &kp RC(V)     &kp RC(C)     &kp RC(X)       &none        &trans
+       &trans         &none         &none       &kp PG_UP     &kp PG_DN       &none              &none       &kp RC(V)     &kp RC(C)     &kp RC(X)       &none        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none         &none         &none             &trans       &sys_reset   &bootloader
