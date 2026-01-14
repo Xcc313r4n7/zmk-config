@@ -140,10 +140,10 @@
        &trans      &bt BT_CLR   &out OUT_TOG    &kp C_PP     &kp C_MUTE       &none            &kp FSLH        &kp N7        &kp N8        &kp N9      &kp ASTRK       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none      &bt BT_NXT    &kp C_NEXT   &kp C_VOL_UP   &kp C_BRI_UP        &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
+       &trans     &kp C_BRI_UP   &bt BT_NXT    &kp C_NEXT   &kp C_VOL_UP      &none            &kp MINUS       &kp N4        &kp N5        &kp N6      &kp PLUS        &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 // |             |             |             |             |             |             ||  ||             |             |             |             |             |             |
-       &trans         &none      &bt BT_PRV    &kp C_PREV   &kp C_VOL_DN   &kp C_BRI_DN        &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
+       &trans     &kp C_BRI_DN   &bt BT_PRV    &kp C_PREV   &kp C_VOL_DN      &none            &kp CARET       &kp N1        &kp N2        &kp N3      &kp PRCNT       &trans
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
                                                   &none        &trans         &none             &kp DOT        &kp N0      &kp EQUAL
