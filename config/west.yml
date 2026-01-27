@@ -9,7 +9,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3.0
+      revision: main
       import: app/west.yml
     - name: nice-view-gem #custom widget for nice view
       remote: m165437 #custom widget for nice view
