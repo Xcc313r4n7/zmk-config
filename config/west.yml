@@ -11,8 +11,8 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: nice-view-gem #custom widget for nice view
-      remote: m165437 #custom widget for nice view
-      revision: main #custom widget for nice view
+#    - name: nice-view-gem #custom widget for nice view
+#      remote: m165437 #custom widget for nice view
+#      revision: main #custom widget for nice view
   self:
     path: config
