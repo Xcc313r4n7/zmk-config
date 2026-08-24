@@ -129,7 +129,7 @@
       &kp C_MUTE      &kp W         &kp V         &kp M         &kp G         &kp Q              &quex         &pco         &kp APOS       &kp J         &kp X       &kp C_PP
 // |_____________|_____________|_____________|_____________|_____________|_____________||  ||_____________|_____________|_____________|_____________|_____________|_____________|
 //                                           |             |             |             ||  ||             |             |             |
-                                               &lht FUN TAB   &lht NUM R  &lht MOU ENTER     &lht NAV BSPC &lht SYM SPACE &lht MED DEL
+                                               &lht FUN TAB   &lht NUM R  &lht MOU BSPC     &lht NAV ENTER &lht SYM SPACE &lht MED DEL
 //                                           |_____________|_____________|_____________||  ||_____________|_____________|_____________|                  
                              >;
                        };
